@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: customa_production
-  username: customa
-  password: <%= ENV['CUSTOMA_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
