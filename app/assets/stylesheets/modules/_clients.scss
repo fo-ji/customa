@@ -1,3 +1,53 @@
 * {
   box-sizing: border-box;
 }
+
+.side-bar {
+  width: 300px;
+  height: 100vh;
+  
+  &__head {
+    height: 100px;
+    background-color: #006400;
+    padding: 10px 20px;
+    font-size: 18px;
+
+    &--title {
+      color: rgb(255, 255, 223);
+    }
+
+    &--show {
+      color: rgb(255, 255, 223);
+    }
+  }
+
+  &__body {
+    height: calc(100vh - 100px);
+    background-color: #228B22;
+    padding: 10px 20px;
+
+    &--title {
+      color: rgb(255, 255, 223);
+      font-size: 18px;
+    }
+
+    &--list {
+
+      .client__list {
+
+        .list__info {
+          display: flex;
+          justify-content: space-between;
+
+          &--name {
+            color: rgb(255, 255, 223);
+          }
+
+          &--edit {
+            color: rgb(255, 255, 223);
+          }
+        }
+      }
+    }
+  }
+}
