@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+// side-bar
 .side-bar {
   width: 300px;
   height: 100vh;
@@ -14,10 +15,34 @@
 
     &--title {
       color: rgb(255, 255, 223);
+      display: flex;
+      justify-content: space-between;
+
+      .title__name {
+      }
+
+      .title__link {
+        
+        i {
+          color: rgb(255, 255, 223);
+        }
+      }
     }
 
     &--show {
       color: rgb(255, 255, 223);
+      display: flex;
+      justify-content: space-between;
+
+      .show__name {
+      }
+
+      .show__link {
+
+        i {
+          color: rgb(255, 255, 223);
+        }
+      }
     }
   }
 
@@ -44,7 +69,10 @@
           }
 
           &--edit {
-            color: rgb(255, 255, 223);
+
+            i {
+              color: rgb(255, 255, 223);
+            }
           }
         }
       }

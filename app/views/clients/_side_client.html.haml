@@ -3,10 +3,19 @@
   .side-bar__head
 
     .side-bar__head--title
-      クライアント登録
+      .title__name
+        クライアント登録
+      .title__link
+        = link_to "#" do
+          = icon('fas', 'plus')
+          
     .side-bar__head--show
-      クライアントの一覧表示
-      -# ページリンクで最終更新日を表示させたい
+      .show__name
+        クライアントの一覧表示
+        -# ページリンクで最終更新日を表示させたい
+      .show__link
+        = link_to "#" do
+          = icon('fas', 'list')
 
   .side-bar__body
 
@@ -21,6 +30,5 @@
           .list__info--name
             ◯◯株式会社
           .list__info--edit
-            編集
-            -# アイコンにする
-            
+            = link_to "#" do
+              = icon('fas', 'ellipsis-v')
