@@ -1,3 +1,6 @@
+@import "mixin/color";
+@import "mixin/space-between";
+
 * {
   box-sizing: border-box;
 }
@@ -14,9 +17,8 @@
     font-size: 18px;
 
     &--title {
-      color: rgb(255, 255, 223);
-      display: flex;
-      justify-content: space-between;
+      color: $fontColorFlesh;
+      @include space-between();
 
       .title__name {
       }
@@ -24,15 +26,14 @@
       .title__link {
         
         i {
-          color: rgb(255, 255, 223);
+          color: $fontColorFlesh;
         }
       }
     }
 
     &--show {
-      color: rgb(255, 255, 223);
-      display: flex;
-      justify-content: space-between;
+      color: $fontColorFlesh;
+      @include space-between();
 
       .show__name {
       }
@@ -40,7 +41,7 @@
       .show__link {
 
         i {
-          color: rgb(255, 255, 223);
+          color: $fontColorFlesh;
         }
       }
     }
@@ -52,7 +53,7 @@
     padding: 10px 20px;
 
     &--title {
-      color: rgb(255, 255, 223);
+      color: $fontColorFlesh;
       font-size: 18px;
     }
 
@@ -61,17 +62,16 @@
       .client__list {
 
         .list__info {
-          display: flex;
-          justify-content: space-between;
+          @include space-between();
 
           &--name {
-            color: rgb(255, 255, 223);
+            color: $fontColorFlesh;
           }
 
           &--edit {
 
             i {
-              color: rgb(255, 255, 223);
+              color: $fontColorFlesh;
             }
           }
         }
