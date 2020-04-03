@@ -1,0 +1,19 @@
+@import "mixin/color";
+
+* {
+  box-sizing: border-box;
+}
+
+.footer {
+  height: 30px;
+  width: 100vw;
+
+  &__text {
+    width: 250px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+    color: $fontColorBlack;
+    margin: 0 auto;
+  }
+}
