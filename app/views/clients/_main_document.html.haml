@@ -1,0 +1,34 @@
+.main-document
+
+  .main-document__header
+    .main-document__header--title
+      .title__name 保存ファイル一覧
+
+  .main-document__container
+    .main-document__container--left
+      .left__title
+        .left__title--name 見積書
+      .left__box
+        %ul.quotation__list
+          %li.quotation__list--name 【見積書】◯◯向け
+
+    .main-document__container--center
+      .center__title
+        .center__title--name 議事録
+      .center__box
+        %ul.minutes__list
+          %li.minutes__list--name 【議事録】◯◯向け
+
+    .main-document__container--right
+      .right__title
+        .right__title--name その他
+      .right__box
+        %ul.other__list
+          %li.other__list--name 【その他】◯◯向け
+
+  .main-document__footer
+    .main-document__footer--upload
+      = link_to "#", class: "upload" do
+        .upload__title 書類をアップロード
+        .upload__btn
+          = icon('fas', 'file-upload')

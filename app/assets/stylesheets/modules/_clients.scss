@@ -1,0 +1,220 @@
+@import "mixin/color";
+@import "mixin/space-between";
+@import "mixin/main-document-name";
+
+* {
+  box-sizing: border-box;
+}
+
+// ページ全体
+.wrapper {
+  display: flex;
+  height: calc(100vh - 50px - 30px);
+}
+
+// side-bar
+.side-bar {
+  width: 300px;
+  height: 100%;
+  
+  &__header {
+    height: 100px;
+    background-color: #006400;
+    padding: 10px 20px;
+    font-size: 18px;
+
+    &--title {
+      color: $fontColorFlesh;
+      @include space-between();
+
+      .title__name {
+      }
+
+      .title__link {
+        
+        i {
+          color: $fontColorFlesh;
+        }
+      }
+    }
+
+    &--show {
+      color: $fontColorFlesh;
+      @include space-between();
+
+      .show__name {
+      }
+
+      .show__link {
+
+        i {
+          color: $fontColorFlesh;
+        }
+      }
+    }
+  }
+
+  &__body {
+    height: calc(100% - 100px);
+    background-color: #228B22;
+    padding: 10px 20px;
+
+    &--title {
+      color: $fontColorFlesh;
+      font-size: 18px;
+    }
+
+    &--list {
+
+      .client__list {
+
+        .list__info {
+          @include space-between();
+
+          &--name {
+            color: $fontColorFlesh;
+          }
+
+          &--edit {
+
+            i {
+              color: $fontColorFlesh;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// main-document
+.main-document {
+  width: calc(100vw - 300px);
+  height: 100%;
+
+  &__header {
+    height: 100px;
+    background-color: #F5F5F5;
+    padding: 10px 20px;
+
+    &--title {
+      width: 200px;
+      border-bottom: $fontColorBlack 2px solid;
+      
+      .title__name {
+        font-size: 25px;
+        color: $fontColorBlack;
+      }
+    }
+  }
+
+  .main-document__container {
+    display: flex;
+    height: calc(100% - 100px - 50px);
+    background-color: #D3D3D3;
+
+    &--left {
+      width: 34%;
+
+      .left__title {
+        height: 60px;
+
+        &--name {
+          @include main-document-name();
+        }
+      }
+
+      .left__box {
+        height: calc(100vh - 100px - 50px - 60px);
+
+        .quotation__list {
+
+          &--name {
+            font-size: 16px;
+            color: $fontColorBlack;
+          }
+        }
+      }
+    }
+
+    &--center {
+      width: 34%;
+      border-left: $fontColorBlack 1px dashed;
+
+      .center__title {
+        height: 60px;
+
+        &--name {
+          @include main-document-name();
+        }
+      }
+
+      .center__box {
+        height: calc(100vh - 100px - 50px - 60px);
+
+        .minutes__list {
+
+          &--name {
+            font-size: 16px;
+            color: $fontColorBlack;
+          }
+        }
+      }
+    }
+
+    &--right {
+      width: 32%;
+      border-left: $fontColorBlack 1px dashed;
+
+      .right__title {
+        height: 60px;
+
+        &--name {
+          @include main-document-name();
+        }
+      }
+
+      .right__box {
+        height: calc(100vh - 100px - 50px - 60px);
+
+        .other__list {
+
+          &--name {
+            font-size: 16px;
+            color: $fontColorBlack;
+          }
+        }
+      }
+    }
+  }
+
+  .main-document__footer {
+    height: 50px;
+    background-color: #A9A9A9;
+
+    &--upload {
+      float: right;
+      padding: 12px 30px 5px 0px;
+
+      .upload {
+        @include space-between();
+        width: 200px;
+        height: 30px;
+        border: $fontColorBlack 1px solid;
+        border-radius: 10%;
+        text-decoration: none;
+
+        .upload__title {
+          color: $fontColorBlack;
+        }
+  
+        .upload__btn {
+          padding-left: 10px;
+          i {
+            color: $fontColorBlack;
+          }
+        }
+      }
+    }
+  }
+}

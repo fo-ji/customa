@@ -1,0 +1,28 @@
+.side-bar
+
+  .side-bar__header
+    .side-bar__header--title
+      .title__name
+        クライアント登録
+      .title__link
+        = link_to "#" do
+          = icon('fas', 'plus')        
+    .side-bar__header--show
+      .show__name
+        クライアントの一覧表示
+        -# ページリンクで最終更新日を表示させたい
+      .show__link
+        = link_to "#" do
+          = icon('fas', 'list')
+
+  .side-bar__body
+    .side-bar__body--title
+      クライアントリスト
+    .side-bar__body--list
+      %ul.client__list
+        %li.list__info
+          .list__info--name
+            ◯◯株式会社
+          .list__info--edit
+            = link_to "#" do
+              = icon('fas', 'ellipsis-v')

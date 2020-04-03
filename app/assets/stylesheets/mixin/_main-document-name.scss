@@ -1,0 +1,7 @@
+@mixin main-document-name() {
+  font-size: 18px;
+  color: $fontColorBlack;
+  line-height: 60px;
+  text-decoration: underline;
+  padding-left: 10px;
+}
