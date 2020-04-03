@@ -68,6 +68,22 @@
         margin-top: 5px;
       }
     }
+
+// only_logout
+    &--new {
+
+      .new-btn {
+        @include nav-btn();
+        margin: 5px 10px 0 0;
+      }
+    }
+
+    &--login {
+
+      .login-btn {
+        @include nav-btn();
+        margin-top: 5px;
+      }
+    }
   }
 }
-
