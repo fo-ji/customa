@@ -1,0 +1,12 @@
+.header
+  .header__title
+    .header__title--name Customa
+  .header__search
+    .header__search--field
+      .search__icon
+        = icon('fas', 'search')
+  .header__nav
+    .header__nav--mypage
+      = link_to "マイページ", "#", class: "mypage-btn"
+    .header__nav--logout
+      = link_to "ログアウト", "#", class: "logout-btn"

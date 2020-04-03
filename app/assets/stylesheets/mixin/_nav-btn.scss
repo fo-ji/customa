@@ -1,0 +1,10 @@
+@mixin nav-btn() {
+  height: 40px;
+  display: block;
+  padding-top: 5px;
+  color: $fontColorBlack;
+  background-color: #98FB98;
+  text-decoration: none;
+  border: $fontColorBlack 1px solid;
+  border-radius: 10px;
+}

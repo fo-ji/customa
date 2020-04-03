@@ -1,0 +1,73 @@
+@import "mixin/color";
+@import "mixin/space-between";
+@import "mixin/nav-btn";
+
+* {
+  box-sizing: border-box;
+}
+
+// login&logout
+.header {
+  height: 50px;
+  width: 100vw;
+  @include space-between();
+
+  &__title {
+    width: 30%;
+    padding-left: 10px;
+
+    &--name {
+      font-weight: bold;
+      font-size: 26px;
+      color: $fontColorBlack;
+      line-height: 50px;
+    }
+  }
+
+  &__search {
+    width: 50%;
+    padding-top: 10px;
+
+    &--field {
+      height: 30px;
+      width: 350px;
+      line-height: 50px;
+      border: $fontColorBlack 1px solid;
+
+      .search__icon {
+        padding-top: 5px;
+        padding-left: 5px;
+
+        i {
+          display: block;
+          color: $fontColorBlack;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    width: 20%;
+    padding-right: 30px;
+    display: flex;
+    justify-content: flex-end;
+
+// only_login
+    &--mypage {
+      
+      .mypage-btn {
+        @include nav-btn();
+        margin: 5px 10px 0 0;
+      }
+    }
+
+    &--logout {
+
+      .logout-btn {
+        @include nav-btn();
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
