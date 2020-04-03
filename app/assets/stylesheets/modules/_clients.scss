@@ -1,5 +1,6 @@
 @import "mixin/color";
 @import "mixin/space-between";
+@import "mixin/main-document-name";
 
 * {
   box-sizing: border-box;
@@ -94,11 +95,11 @@
 
     &--title {
       width: 200px;
-      border-bottom: #222222 2px solid;
+      border-bottom: $fontColorBlack 2px solid;
       
       .title__name {
         font-size: 25px;
-        color: #222222;
+        color: $fontColorBlack;
       }
     }
   }
@@ -115,11 +116,7 @@
         height: 60px;
 
         &--name {
-          font-size: 18px;
-          color: #222222;
-          line-height: 60px;
-          text-decoration: underline;
-          padding-left: 10px;
+          @include main-document-name();
         }
       }
 
@@ -130,7 +127,7 @@
 
           &--name {
             font-size: 16px;
-            color: #222222;
+            color: $fontColorBlack;
           }
         }
       }
@@ -138,17 +135,13 @@
 
     &--center {
       width: 34%;
-      border-left: #222222 1px dashed;
+      border-left: $fontColorBlack 1px dashed;
 
       .center__title {
         height: 60px;
 
         &--name {
-          font-size: 18px;
-          color: #222222;
-          line-height: 60px;
-          text-decoration: underline;
-          padding-left: 10px;
+          @include main-document-name();
         }
       }
 
@@ -159,7 +152,7 @@
 
           &--name {
             font-size: 16px;
-            color: #222222;
+            color: $fontColorBlack;
           }
         }
       }
@@ -167,17 +160,13 @@
 
     &--right {
       width: 32%;
-      border-left: #222222 1px dashed;
+      border-left: $fontColorBlack 1px dashed;
 
       .right__title {
         height: 60px;
 
         &--name {
-          font-size: 18px;
-          color: #222222;
-          line-height: 60px;
-          text-decoration: underline;
-          padding-left: 10px;
+          @include main-document-name();
         }
       }
 
@@ -188,7 +177,7 @@
 
           &--name {
             font-size: 16px;
-            color: #222222;
+            color: $fontColorBlack;
           }
         }
       }
@@ -207,18 +196,18 @@
         @include space-between();
         width: 200px;
         height: 30px;
-        border: #222222 1px solid;
+        border: $fontColorBlack 1px solid;
         border-radius: 10%;
         text-decoration: none;
 
         .upload__title {
-          color: #222222;
+          color: $fontColorBlack;
         }
   
         .upload__btn {
           padding-left: 10px;
           i {
-            color: #222222;
+            color: $fontColorBlack;
           }
         }
       }
