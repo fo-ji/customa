@@ -1,5 +1,9 @@
 %h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+= form_with(model: @user, url: session_path(resource_name), id: 'login_user', class: 'login_user', local: true) do |f|
+  .field
+    = f.label :nickname
+    %br/
+    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
   .field
     = f.label :email
     %br/
