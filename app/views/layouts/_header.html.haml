@@ -6,11 +6,13 @@
       .search__icon
         = icon('fas', 'search')
   .header__nav
-    -# .header__nav--mypage
-    -#   = link_to "マイページ", "#", class: "mypage-btn"
-    -# .header__nav--logout
-    -#   = link_to "ログアウト", "#", class: "logout-btn"
-    .header__nav--new
-      = link_to "新規登録", "#", class: "new-btn"
-    .header__nav--login
-      = link_to "ログイン", "#", class: "login-btn"
+    - if user_signed_in?
+      .header__nav--mypage
+        = link_to "マイページ", "#", class: "mypage-btn"
+      .header__nav--logout
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
+    - else
+      .header__nav--new
+        = link_to "新規登録", new_user_registration_path, class: "new-btn"
+      .header__nav--login
+        = link_to "ログイン", new_user_session_path, class: "login-btn"
