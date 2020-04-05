@@ -1,20 +1,23 @@
-%h2 ログイン
-= form_with(model: @user, url: session_path(resource_name), id: 'login_user', class: 'login_user', local: true) do |f|
-  .field
-    = f.label :nickname, "ニックネーム"
-    %br/
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-  .field
-    = f.label :email, "メールアドレス"
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password, "パスワード"
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me, "ログイン状態を記憶する"
-  .actions
-    = f.submit "ログイン"
+.user-form
+  .user-form__header
+    .user-form__header--title
+      %h2.title__name ログイン
+
+  .user-form__container
+    .form__box
+      = form_with(model: @user, url: session_path(resource_name), id: 'login_user', class: 'login_user', local: true) do |f|
+        .field
+          = f.label :nickname, "ニックネーム", class: "field__name"
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "field__size"
+        .field
+          = f.label :email, "メールアドレス", class: "field__name"
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "field__size"
+        .field
+          = f.label :password, "パスワード", class: "field__name"
+          = f.password_field :password, autocomplete: "current-password", class: "field__size"
+        - if devise_mapping.rememberable?
+          .field
+            = f.check_box :remember_me, class: "field__name"
+            = f.label :remember_me, "ログイン状態を記憶する", class: "field__name"
+        .actions
+          = f.submit "ログイン", class: "submit-btn"
