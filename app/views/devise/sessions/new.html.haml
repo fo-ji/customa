@@ -21,3 +21,5 @@
             = f.label :remember_me, "ログイン状態を記憶する", class: "field__name"
         .actions
           = f.submit "ログイン", class: "submit-btn"
+
+      = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
