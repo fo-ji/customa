@@ -1,0 +1,17 @@
+.user-form
+  .user-form__header
+    .user-form__header--title
+      %h2.title__name アカウント編集
+
+  .user-form__container
+    .form__box
+      = form_with(model: @user, id: 'edit_user', class: 'edit_user', local: true) do |f|
+        .field
+          = f.label :nickname, "ニックネーム", class: "field__name"
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "field__size"
+        .field
+          = f.label :email, "メールアドレス", class: "field__name"
+          = f.email_field :email, autocomplete: "email", class: "field__size"
+
+        .actions
+          = f.submit "更   新", class: "submit-btn"
