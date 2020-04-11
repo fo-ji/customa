@@ -25,5 +25,10 @@
         .actions
           = f.submit "登   録", class: "submit-btn"
 
-      = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
-          
+    .form__google
+      .form__google--info Googleアカウントをお持ちの方はこちらから
+      .form__google--link
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google__btn" do
+          = icon("fab", "google", class: "google__btn--icon")
+          %span<>
+            Googleで新規登録する

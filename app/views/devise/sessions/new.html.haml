@@ -24,5 +24,10 @@
             = f.label :remember_me, "ログイン状態を記憶する", class: "field__name"
         .actions
           = f.submit "ログイン", class: "submit-btn"
-
-      = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
+    .form__google
+      .form__google--info Googleアカウントをお持ちの方はこちらから
+      .form__google--link
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google__btn" do
+          = icon("fab", "google", class: "google__btn--icon")
+          %span<>
+            Googleでログインする

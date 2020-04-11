@@ -63,5 +63,31 @@
         }
       }
     }
+
+    .form__google {
+      padding-top: 100px;
+
+      &--info {
+        color: $fontColorBlack;
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 15px;
+      }
+
+      &--link {
+        width: 200px;
+        margin: 5px auto;
+
+        .google__btn {
+          @include nav-btn();
+          color: $fontColorBlack;
+          text-decoration: none;
+
+          &--icon {
+            padding-right: 10px;
+          }
+        }
+      }
+    }
   }
 }
