@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root "clients#index"
+  resources :users, only: :index
 end
