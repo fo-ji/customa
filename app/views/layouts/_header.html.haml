@@ -8,7 +8,7 @@
   .header__nav
     - if user_signed_in?
       .header__nav--mypage
-        = link_to "マイページ", "#", class: "mypage-btn"
+        = link_to "マイページ", users_path, class: "mypage-btn"
       .header__nav--logout
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
     - else

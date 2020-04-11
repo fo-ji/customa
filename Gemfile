@@ -78,4 +78,5 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'omniauth-google-oauth2'
-gem "omniauth-rails_csrf_protection"
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth', '>= 1.0.0'

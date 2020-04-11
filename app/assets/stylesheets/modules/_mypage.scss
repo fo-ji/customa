@@ -1,0 +1,35 @@
+@import "mixin/color";
+
+* {
+  box-sizing: border-box;
+}
+
+// ページ全体
+.wrapper__mypage {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 50px - 30px);
+}
+
+// acount-edit
+.acount-edit {
+  height: 150px;
+  width: 100vw;
+  background-color: gray;
+}
+
+// main-contents
+.main-contents {
+  display: flex;
+  height: calc(100vh - 50px - 30px - 150px);
+
+  .upload-contents {
+    width: 50%;
+    background-color: lightblue;
+  }
+
+  .important-contents {
+    width: 50%;
+    background-color: lightgreen;
+  }
+}
