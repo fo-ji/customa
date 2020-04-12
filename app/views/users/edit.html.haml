@@ -5,7 +5,7 @@
 
   .user-form__container
     .form__box
-      = form_with(model: @user, id: 'edit_user', class: 'edit_user', local: true) do |f|
+      = form_with(model: current_user, local: true) do |f|
         .field
           = f.label :nickname, "ニックネーム", class: "field__name"
           = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "field__size"
@@ -15,3 +15,4 @@
 
         .actions
           = f.submit "更   新", class: "submit-btn"
+          
