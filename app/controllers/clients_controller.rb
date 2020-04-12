@@ -18,6 +18,6 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:company_name, :responsible_party, :address, :postal_code, :phone_number, :email, :user_id)
+    params.require(:client).permit(:company_name, :responsible_party, :address, :postal_code, :phone_number, :email).merge(user_id: current_user.id)
   end
 end
