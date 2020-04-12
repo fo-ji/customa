@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_044800) do
+ActiveRecord::Schema.define(version: 2020_04_12_070852) do
+
+  create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "company_name", null: false
+    t.string "responsible_party", null: false
+    t.string "address", null: false
+    t.string "postal_code", null: false
+    t.string "phone_number", null: false
+    t.string "email", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_clients_on_user_id"
+  end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
@@ -35,5 +48,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_044800) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "clients", "users"
   add_foreign_key "sns_credentials", "users"
 end
