@@ -20,8 +20,8 @@
       クライアントリスト
     .side-bar__body--list
       %ul.client__list
-        %li.list__info
-          - @clients.each do |client|
+        - @clients.each do |client|
+          %li.list__info
             .list__info--name
               = client.company_name
             .list__info--edit
