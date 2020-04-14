@@ -60,16 +60,23 @@
     padding: 10px 20px;
 
     &--title {
+      height: 40px;
       color: $fontColorFlesh;
       font-size: 18px;
+      padding-bottom: 20px;
     }
 
     &--list {
+      height: calc(100% - 100px - 40px);
+      overflow: scroll;
 
       .client__list {
-
+        display: flex;
+        flex-direction: column;
+        
         .list__info {
           @include space-between();
+          padding-bottom: 20px;
 
           &--name {
             color: $fontColorFlesh;
