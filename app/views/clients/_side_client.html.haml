@@ -21,8 +21,9 @@
     .side-bar__body--list
       %ul.client__list
         %li.list__info
-          .list__info--name
-            ◯◯株式会社
-          .list__info--edit
-            = link_to "#" do
-              = icon('fas', 'ellipsis-v')
+          - @clients.each do |client|
+            .list__info--name
+              = client.company_name
+            .list__info--edit
+              = link_to "#" do
+                = icon('fas', 'ellipsis-v')
