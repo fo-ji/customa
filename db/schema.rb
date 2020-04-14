@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_070852) do
+ActiveRecord::Schema.define(version: 2020_04_14_081849) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", null: false
@@ -23,6 +23,39 @@ ActiveRecord::Schema.define(version: 2020_04_12_070852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
+  create_table "minutes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "file", null: false
+    t.integer "row_order", null: false
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_minutes_on_client_id"
+    t.index ["name", "file"], name: "index_minutes_on_name_and_file"
+  end
+
+  create_table "others", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "file", null: false
+    t.integer "row_order", null: false
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_others_on_client_id"
+    t.index ["name", "file"], name: "index_others_on_name_and_file"
+  end
+
+  create_table "quotations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "file", null: false
+    t.integer "row_order", null: false
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_quotations_on_client_id"
+    t.index ["name", "file"], name: "index_quotations_on_name_and_file"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -49,5 +82,8 @@ ActiveRecord::Schema.define(version: 2020_04_12_070852) do
   end
 
   add_foreign_key "clients", "users"
+  add_foreign_key "minutes", "clients"
+  add_foreign_key "others", "clients"
+  add_foreign_key "quotations", "clients"
   add_foreign_key "sns_credentials", "users"
 end
