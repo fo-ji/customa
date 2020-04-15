@@ -1,0 +1,13 @@
+@import "mixin/color";
+@import "mixin/space-between";
+@import "mixin/main-document-name";
+
+* {
+  box-sizing: border-box;
+}
+
+// ページ全体
+.wrapper__upload--form {
+  display: flex;
+  height: calc(100vh - 50px - 30px);
+}

@@ -1,6 +1,7 @@
 @import "mixin/color";
 @import "mixin/space-between";
 @import "mixin/main-document-name";
+@import "mixin/nav-btn";
 
 * {
   box-sizing: border-box;
@@ -202,25 +203,15 @@
     &--upload {
       float: right;
       padding: 12px 30px 5px 0px;
+      @include space-between();
 
       .upload {
-        @include space-between();
+        @include nav-btn();
         width: 200px;
         height: 30px;
-        border: $fontColorBlack 1px solid;
-        border-radius: 10%;
-        text-decoration: none;
+        color: $fontColorBlack;
+        z-index: 1;
 
-        .upload__title {
-          color: $fontColorBlack;
-        }
-  
-        .upload__btn {
-          padding-left: 10px;
-          i {
-            color: $fontColorBlack;
-          }
-        }
       }
     }
   }

@@ -28,7 +28,4 @@
 
   .main-document__footer
     .main-document__footer--upload
-      = link_to "#", class: "upload" do
-        .upload__title 書類をアップロード
-        .upload__btn
-          = icon('fas', 'file-upload')
+      = link_to "書類をアップロード", file_upload_clients_path, class: "upload"
