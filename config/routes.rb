@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   }
   root "clients#index"
   resources :users, only: [:index, :edit, :update]
-  resources :clients, only: [:index, :new, :create] do
-    collection do
-      get "file_upload"
-    end
-  end
+  resources :clients, only: [:index, :new, :create]
+  resources :quotations, only: [:new, :create]
 end
