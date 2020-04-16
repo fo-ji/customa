@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_081849) do
+ActiveRecord::Schema.define(version: 2020_04_16_084356) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", null: false
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 2020_04_14_081849) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
+  create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "document", null: false
+    t.bigint "quotation_id"
+    t.bigint "minutes_id"
+    t.bigint "other_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["minutes_id"], name: "index_documents_on_minutes_id"
+    t.index ["other_id"], name: "index_documents_on_other_id"
+    t.index ["quotation_id"], name: "index_documents_on_quotation_id"
   end
 
   create_table "minutes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,6 +91,9 @@ ActiveRecord::Schema.define(version: 2020_04_14_081849) do
   end
 
   add_foreign_key "clients", "users"
+  add_foreign_key "documents", "minutes", column: "minutes_id"
+  add_foreign_key "documents", "others"
+  add_foreign_key "documents", "quotations"
   add_foreign_key "minutes", "clients"
   add_foreign_key "others", "clients"
   add_foreign_key "quotations", "clients"
