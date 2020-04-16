@@ -16,6 +16,9 @@ class ClientsController < ApplicationController
     end
   end
 
+  def file_upload
+  end
+
   private
 
   def client_params
