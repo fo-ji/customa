@@ -57,13 +57,13 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|file     |string    |null: false|
 |name     |string    ||
 |row_order|integer   |null: false|
 |client_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :clients
+- has_many   :files
 - has_one :comment
 
 
@@ -71,13 +71,13 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|file     |string    |null: false|
 |name     |string    ||
 |row_order|integer   |null: false|
 |client_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :clients
+- has_many   :files
 - has_one :comment
 
 
@@ -85,14 +85,28 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|file     |string    |null: false|
 |name     |string    ||
 |row_order|integer   |null: false|
 |client_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :clients
+- has_many   :files
 - has_one :comment
+
+## Filesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|file         |string    |null: false|
+|quotation_id |references|null: false, foreign_key: true|
+|minutes_id   |references|null: false, foreign_key: true|
+|other_id     |references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :quotation
+- belongs_to :minutes
+- belongs_to :other
 
 
 ## Commentsテーブル
