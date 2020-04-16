@@ -63,7 +63,7 @@
 
 ### Association
 - belongs_to :clients
-- has_many   :files
+- has_many   :documents
 - has_one :comment
 
 
@@ -77,7 +77,7 @@
 
 ### Association
 - belongs_to :clients
-- has_many   :files
+- has_many   :documents
 - has_one :comment
 
 
@@ -91,14 +91,14 @@
 
 ### Association
 - belongs_to :clients
-- has_many   :files
+- has_many   :documents
 - has_one :comment
 
-## Filesテーブル
+## Documentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|file         |string    |null: false|
+|document     |string    |null: false|
 |quotation_id |references|null: false, foreign_key: true|
 |minutes_id   |references|null: false, foreign_key: true|
 |other_id     |references|null: false, foreign_key: true|
