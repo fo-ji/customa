@@ -27,35 +27,32 @@ ActiveRecord::Schema.define(version: 2020_04_14_081849) do
 
   create_table "minutes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "file", null: false
     t.integer "row_order", null: false
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_minutes_on_client_id"
-    t.index ["name", "file"], name: "index_minutes_on_name_and_file"
+    t.index ["name"], name: "index_minutes_on_name"
   end
 
   create_table "others", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "file", null: false
     t.integer "row_order", null: false
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_others_on_client_id"
-    t.index ["name", "file"], name: "index_others_on_name_and_file"
+    t.index ["name"], name: "index_others_on_name"
   end
 
   create_table "quotations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "file", null: false
     t.integer "row_order", null: false
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_quotations_on_client_id"
-    t.index ["name", "file"], name: "index_quotations_on_name_and_file"
+    t.index ["name"], name: "index_quotations_on_name"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
