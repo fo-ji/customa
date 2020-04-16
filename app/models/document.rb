@@ -1,7 +1,7 @@
 class Document < ApplicationRecord
-  belongs_to :quotation
-  belongs_to :minutes
-  belongs_to :other
+  belongs_to :quotation, optional: true
+  belongs_to :minutes,   optional: true
+  belongs_to :other,     optional: true
 
   mount_uploader :document, FileUploader
 

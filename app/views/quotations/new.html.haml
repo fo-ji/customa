@@ -1,1 +1,33 @@
-見積書のアップロード
+.wrapper__upload--form
+
+  .file-upload__form
+    .file-upload__form--header
+      .header--title
+        %h2.header__title--name 見積書のアップロード
+
+    .file-upload__form--container
+      .form__box
+        = form_with(model: @quotation, local: true) do |f|
+          .field
+            = f.label :name, "ファイル名", class: "field__name"
+            = f.text_field :name, autofocus: true, autocomplete: "name", class: "field__size"
+          .field
+            = f.label :client_id, "クライアント名", class: "field__name"
+            = f.collection_select(:client_id, @clients, :id, :company_name, {prompt: "クライアント名を選択して下さい"})
+          .field
+            = f.label :document, "見積書をアップロード", class: "field__name"
+            -# = form_tag("#", class: 'dropzone', id: 'upload-dropzone') do |f|
+            -#   .field__name 見積書のアップロード
+            -# .fallback
+            -#   = f.file_field_tag('attach[file]')
+
+            = f.fields_for :documents do |document|
+              = document.file_field :document, class: "dropzone", id: "upload-dropzone"
+
+
+            -#   = document.file_field('attach[file]')
+
+
+
+          .actions
+            = f.submit "登   録", class: "submit-btn"

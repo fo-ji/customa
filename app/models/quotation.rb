@@ -1,5 +1,5 @@
 class Quotation < ApplicationRecord
-  belongs_to :clients
+  belongs_to :client
   has_many :documents
 
   accepts_nested_attributes_for :documents
