@@ -1,1 +1,29 @@
-画像のアップロードページ
+.wrapper__upload--form
+
+  .file-upload__form
+    .file-upload__form--container
+  .form__box
+    = form_tag("#", class: 'dropzone', id: 'upload-dropzone') do |f|
+      .field__name 見積書のアップロード
+      .fallback
+        = file_field_tag('attach[file]')
+
+      -# チェックボックス作成
+      .form__client-id
+        = check_box_tag :client_id, @clients
+
+    %br/
+    = form_tag("#", class: 'dropzone', id: 'upload-dropzone') do
+      .field__name 議事録のアップロード
+      .fallback
+        = file_field_tag('attach[file]')
+        -# チェックボックス作成
+
+    %br/
+    = form_tag("#", class: 'dropzone', id: 'upload-dropzone') do
+      .field__name その他のアップロード
+      .fallback
+        = file_field_tag('attach[file]')
+        -# チェックボックス作成
+
+-# 「完了」ボタンでデータを保存する仕様にする
