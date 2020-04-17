@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root "clients#index"
-  resources :users, only: [:index, :edit, :update]
-  resources :clients, only: [:index, :new, :create]
+  resources :users,      only: [:index, :edit, :update]
+  resources :clients,    only: [:index, :new, :create]
   resources :quotations, only: [:new, :create]
+  resources :minutes,    only: [:new, :create]
+  resources :others,     only: [:new, :create]
 end
