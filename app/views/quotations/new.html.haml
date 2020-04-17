@@ -2,7 +2,7 @@
 
   .file-upload__form
     .file-upload__form--header
-      .header--title
+      .header__title
         %h2.header__title--name 見積書のアップロード
 
     .file-upload__form--container
@@ -13,21 +13,11 @@
             = f.text_field :name, autofocus: true, autocomplete: "name", class: "field__size"
           .field
             = f.label :client_id, "クライアント名", class: "field__name"
-            = f.collection_select(:client_id, @clients, :id, :company_name, {prompt: "クライアント名を選択して下さい"})
+            = f.collection_select(:client_id, @clients, :id, :company_name, {prompt: "---"}, class: "field__size")
           .field
             = f.label :document, "見積書をアップロード", class: "field__name"
-            -# = form_tag("#", class: 'dropzone', id: 'upload-dropzone') do |f|
-            -#   .field__name 見積書のアップロード
-            -# .fallback
-            -#   = f.file_field_tag('attach[file]')
-
             = f.fields_for :documents do |document|
               = document.file_field :document, class: "dropzone", id: "upload-dropzone"
-
-
-            -#   = document.file_field('attach[file]')
-
-
 
           .actions
             = f.submit "登   録", class: "submit-btn"

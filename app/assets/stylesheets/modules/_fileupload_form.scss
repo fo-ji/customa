@@ -13,3 +13,71 @@
   height: calc(100vh - 50px - 30px);
 }
 
+// フォーム
+.file-upload__form {
+  height: calc(100vh - 50px - 30px);
+  background-color: $backgroundColorGray;
+
+  &--header {
+    height: 100px;
+    width: 100vw;
+
+    .header__title {
+      text-align: center;
+      margin: 0 auto;
+
+      &--name {
+        padding-top: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        color: $fontColorBlack;
+      }
+    }
+  }
+
+  &--container {
+    height: calc(100% - 100px);
+    width: 50%;
+    margin: 0 auto;
+
+    .form__box {
+
+      .field {
+        padding-bottom: 15px;
+
+        &__name {
+          display: block;
+          margin-left: 160px;
+          color: $fontColorBlack;
+        }
+        
+        &__size {
+          width: 400px;
+          height: 40px;
+          display: block;
+          margin: 5px auto;
+        }
+
+        #upload-dropzone {
+          width: 400px;
+          height: 40px;
+          display: block;
+          margin: 5px auto;
+          // display: none;
+        }
+      }
+      
+      .actions {
+
+        .submit-btn {
+          @include nav-btn();
+          width: 150px;
+          cursor: pointer;
+          margin: 5px auto;
+          color: $fontColorBlack;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
