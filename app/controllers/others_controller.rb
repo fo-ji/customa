@@ -6,6 +6,7 @@ class OthersController < ApplicationController
   end
 
   def create
+    @other = Other.new(other_params)
     @clients = Client.where(user_id: current_user.id)
     if @other.documents.present?
       @other.save
