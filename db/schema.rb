@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2020_04_16_084356) do
   create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "document", null: false
     t.bigint "quotation_id"
-    t.bigint "minutes_id"
+    t.bigint "minute_id"
     t.bigint "other_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["minutes_id"], name: "index_documents_on_minutes_id"
+    t.index ["minute_id"], name: "index_documents_on_minute_id"
     t.index ["other_id"], name: "index_documents_on_other_id"
     t.index ["quotation_id"], name: "index_documents_on_quotation_id"
   end
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_084356) do
   end
 
   add_foreign_key "clients", "users"
-  add_foreign_key "documents", "minutes", column: "minutes_id"
+  add_foreign_key "documents", "minutes"
   add_foreign_key "documents", "others"
   add_foreign_key "documents", "quotations"
   add_foreign_key "minutes", "clients"
