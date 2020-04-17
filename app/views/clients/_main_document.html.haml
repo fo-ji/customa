@@ -10,21 +10,40 @@
         .left__title--name 見積書
       .left__box
         %ul.quotation__list
-          %li.quotation__list--name 【見積書】◯◯向け
+          - @quotations.each do |quotation|
+            = link_to "#" do
+              .quotation__list--all
+                %li.quotation__list--name
+                  = quotation.name
+                %li.quotation__list--date 
+                  = "作成日：#{quotation.created_at.strftime('%Y/%m/%d')}"
 
     .main-document__container--center
       .center__title
         .center__title--name 議事録
       .center__box
         %ul.minutes__list
-          %li.minutes__list--name 【議事録】◯◯向け
+          - @minutes.each do |minute|
+            = link_to "#" do
+              .minutes__list--all
+                %li.minutes__list--name
+                  = minute.name
+                %li.minutes__list--date 
+                  = "作成日：#{minute.created_at.strftime('%Y/%m/%d')}"
 
     .main-document__container--right
       .right__title
         .right__title--name その他
       .right__box
         %ul.other__list
-          %li.other__list--name 【その他】◯◯向け
+          - @others.each do |other|
+            = link_to "#" do
+              .other__list--all
+                %li.other__list--name
+                  = other.name
+                %li.other__list--date 
+                  = "作成日：#{other.created_at.strftime('%Y/%m/%d')}"
+
 
   .main-document__footer
     .main-document__footer--upload
