@@ -1,15 +1,15 @@
-class MinutesesController < ApplicationController
+class MinutesController < ApplicationController
   def new
-    @minutes = Minute.new
-    @minutes.documents.new
+    @minute = Minute.new
+    @minute.documents.new
     @clients = Client.where(user_id: current_user.id)
   end
 
   def create
-    @minutes = Minute.new(minutes_params)
+    @minute = Minute.new(minute_params)
     @clients = Client.where(user_id: current_user.id)
-    if @minutes.documents.present?
-      @minutes.save
+    if @minute.documents.present?
+      @minute.save
       redirect_to root_path
     else
       render :new
@@ -18,7 +18,7 @@ class MinutesesController < ApplicationController
 
   private
 
-  def quotation_params
+  def minute_params
     params.require(:minute).permit(:name, :client_id, documents_attributes: [:document])
   end
 end
