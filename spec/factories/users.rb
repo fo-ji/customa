@@ -7,4 +7,13 @@ FactoryBot.define do
     password_confirmation {"00000000"}
   end
 
+  factory :another_user, class: User do
+    nickname {"tanaka"}
+    email    {"uuu@example.com"}
+  end
+
+  factory :error_user, class: User do
+    nickname {"error"}
+    email    {"error"}
+  end
 end
