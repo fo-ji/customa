@@ -1,9 +1,9 @@
 class ClientsController < ApplicationController
   def index
-    @clients = Client.where(user_id: current_user.id)
+    @clients    = Client.where(user_id: current_user.id)
     @quotations = Quotation.all
-    @minutes = Minute.all
-    @others = Other.all
+    @minutes    = Minute.all
+    @others     = Other.all
   end
 
   def new
@@ -17,9 +17,6 @@ class ClientsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def file_upload
   end
 
   private

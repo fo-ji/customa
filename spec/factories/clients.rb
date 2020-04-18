@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :client do
     company_name      {"森下仁丹株式会社"}
     email             {"jintan@gmail.com"}
@@ -9,6 +8,9 @@ FactoryBot.define do
     phone_number      {"03-1234-5678"}
     user_id           {"1"}
     user
-  end
 
+    trait :invalid do
+      company_name    {""}
+    end
+  end
 end
