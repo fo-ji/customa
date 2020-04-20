@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_084356) do
   end
 
   create_table "minutes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "row_order"
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_084356) do
   end
 
   create_table "others", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "row_order"
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_084356) do
   end
 
   create_table "quotations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "row_order"
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
