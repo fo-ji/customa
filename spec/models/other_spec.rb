@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Other, type: :model do
+  
   describe '#create' do
 
     it "nameとemail、row_order、user_idが存在すれば登録できること" do
