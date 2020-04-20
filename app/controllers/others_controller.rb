@@ -16,6 +16,10 @@ class OthersController < ApplicationController
     end
   end
 
+  def show
+    @other = Other.find(params[:id])
+  end
+
   private
 
   def other_params

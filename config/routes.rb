@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root "clients#index"
   resources :users,      only: [:index, :edit, :update]
   resources :clients,    only: [:index, :new, :create]
-  resources :quotations, only: [:new, :create]
-  resources :minutes,    only: [:new, :create]
-  resources :others,     only: [:new, :create]
+  resources :quotations, only: [:new, :create, :show]
+  resources :minutes,    only: [:new, :create, :show]
+  resources :others,     only: [:new, :create, :show]
 end
