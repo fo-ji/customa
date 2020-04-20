@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :clients,    only: [:index, :new, :create]
   resources :quotations, only: [:new, :create, :show]
   resources :minutes,    only: [:new, :create, :show]
-  resources :others,     only: [:new, :create]
+  resources :others,     only: [:new, :create, :show]
 end
