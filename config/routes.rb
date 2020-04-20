@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :users,      only: [:index, :edit, :update]
   resources :clients,    only: [:index, :new, :create]
   resources :quotations, only: [:new, :create, :show]
-  resources :minutes,    only: [:new, :create]
+  resources :minutes,    only: [:new, :create, :show]
   resources :others,     only: [:new, :create]
 end

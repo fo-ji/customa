@@ -16,6 +16,10 @@ class MinutesController < ApplicationController
     end
   end
 
+  def show
+    @minute = Minute.find(params[:id])
+  end
+
   private
 
   def minute_params
