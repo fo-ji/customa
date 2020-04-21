@@ -1,0 +1,68 @@
+@import "mixin/color";
+@import "mixin/space-between";
+@import "mixin/main-document-name";
+
+* {
+  box-sizing: border-box;
+}
+
+.document__container {
+  height: calc(100vh - 50px - 30px);
+  background-color: $backgroundColorGray;
+  @include space-between();
+  font-size: 24px;
+
+  &--left {
+    height: 100%;
+    width: 50%;
+    background-color: lightblue;
+
+  }
+
+  &--right {
+    height: 100%;
+    width: 50%;
+    background-color: lightyellow;
+
+    .nav__container {
+      display: flex;
+      justify-content: flex-end;
+      height: 50px;
+      line-height: 50px;
+      margin-right: 20px;
+      
+      &--link {
+        color: $fontColorBlack;
+      }
+      
+      #link__icon {
+        color: $fontColorBlack;
+        display: block;
+      }
+    }
+
+    .text__container {
+      margin: 10px 20px 10px 20px;
+
+      &--block {
+        
+        .block__label {
+          @include main-document-name();
+          font-size: 24px;
+        }
+        
+        .block__text {
+          margin: 0 0 20px 50px;
+          overflow-wrap: break-word;
+        }
+
+        .block__text--wide {
+          height: 320px;
+          margin: 0 0 20px 50px;
+          overflow-wrap: break-word;
+          overflow: scroll;
+        }
+      }
+    }
+  }
+}
