@@ -1,1 +1,30 @@
-見積書_詳細ページ
+.document__container
+
+  .document__container--left
+    .file__container
+      .file__container--document
+        = image_tag(@quotation.documents[0].document_url, alt: "画像が表示できませんでした。")
+
+  .document__container--right
+    .nav__container
+      .nav__container--link 編集はこちら
+      .link__icon
+        = link_to "#", id: "link__icon" do
+          = icon('fas', 'pen')
+    .text__container
+      .text__container--block
+        .block__label 書類名
+        .block__text
+          = @quotation.name
+      .text__container--block
+        .block__label クライアント名
+        .block__text
+          = @quotation.client.company_name
+      .text__container--block
+        .block__label 作成日
+        .block__text
+          = @quotation.created_at.strftime('%Y/%m/%d')
+      .text__container--block
+        .block__label コメント
+        .block__text--wide
+          = "仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置。き、仮。置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き"

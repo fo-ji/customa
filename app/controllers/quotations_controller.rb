@@ -17,7 +17,7 @@ class QuotationsController < ApplicationController
   end
 
   def show
-    @quotaton = Quotation.find(params[:id])
+    @quotation = Quotation.find(params[:id])
   end
 
   private
