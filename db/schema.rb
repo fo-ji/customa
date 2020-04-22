@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_084356) do
+ActiveRecord::Schema.define(version: 2020_04_22_014524) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", null: false
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 2020_04_16_084356) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "comment", null: false
+    t.bigint "quotation_id"
+    t.bigint "minute_id"
+    t.bigint "other_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["minute_id"], name: "index_comments_on_minute_id"
+    t.index ["other_id"], name: "index_comments_on_other_id"
+    t.index ["quotation_id"], name: "index_comments_on_quotation_id"
   end
 
   create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,6 +103,9 @@ ActiveRecord::Schema.define(version: 2020_04_16_084356) do
   end
 
   add_foreign_key "clients", "users"
+  add_foreign_key "comments", "minutes"
+  add_foreign_key "comments", "others"
+  add_foreign_key "comments", "quotations"
   add_foreign_key "documents", "minutes"
   add_foreign_key "documents", "others"
   add_foreign_key "documents", "quotations"
