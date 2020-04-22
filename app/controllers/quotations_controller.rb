@@ -18,6 +18,8 @@ class QuotationsController < ApplicationController
 
   def show
     @quotation = Quotation.find(params[:id])
+    @comment = Comment.new
+    # @comments = @tweet.comments
   end
 
   private

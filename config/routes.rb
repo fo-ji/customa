@@ -6,7 +6,15 @@ Rails.application.routes.draw do
   root "clients#index"
   resources :users,      only: [:index, :edit, :update]
   resources :clients,    only: [:index, :new, :create]
-  resources :quotations, only: [:new, :create, :show]
-  resources :minutes,    only: [:new, :create, :show]
-  resources :others,     only: [:new, :create, :show]
+  resources :quotations, only: [:new, :create, :show] do
+    resources :comments do
+      post "create_quotation", on: :member
+    end
+  end
+  resources :minutes,    only: [:new, :create, :show] do
+    resources :comments
+  end
+  resources :others,     only: [:new, :create, :show] do
+    resources :comments
+  end
 end

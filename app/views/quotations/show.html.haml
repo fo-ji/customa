@@ -24,7 +24,12 @@
         .block__label 作成日
         .block__text
           = @quotation.created_at.strftime('%Y/%m/%d')
+
+      = form_with(model: [@quotation, @comment], url: create_quotation_quotation_comment_path(@quotation), local: true) do |f|
+        = f.text_area :comment, placeholder: "コメントする"
+        = f.submit "SEND"
+
       .text__container--block
-        .block__label コメント
+        .block__label コメント一覧
         .block__text--wide
           = "仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置。き、仮。置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き"
