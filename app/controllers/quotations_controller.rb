@@ -33,6 +33,15 @@ class QuotationsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    quotation = Quotaton.find(params[:id])
+    if quotation.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
   
   private
 
