@@ -18,6 +18,8 @@ class MinutesController < ApplicationController
 
   def show
     @minute = Minute.find(params[:id])
+    @comment = Comment.new
+    @comments = @minute.comments
   end
 
   private
