@@ -1,13 +1,15 @@
 class QuotationsController < ApplicationController
+
+  before_action :set_quotation, only: [:show, :edit, :update]
+  before_action :set_client,    only: [:new, :create, :edit]
+
   def new
     @quotation = Quotation.new
     @quotation.documents.new
-    @clients = Client.where(user_id: current_user.id)
   end
 
   def create
     @quotation = Quotation.new(quotation_params)
-    @clients = Client.where(user_id: current_user.id)
     if @quotation.documents.present?
       @quotation.save
       redirect_to root_path
@@ -17,18 +19,14 @@ class QuotationsController < ApplicationController
   end
 
   def show
-    @quotation = Quotation.find(params[:id])
     @comment = Comment.new
     @comments = @quotation.comments
   end
 
   def edit
-    @quotation = Quotation.find(params[:id])
-    @clients = Client.where(user_id: current_user.id)
   end
 
   def update
-    @quotation = Quotation.find(params[:id])
     if @quotation.update(quotation_params)
       redirect_to quotation_path
     else
@@ -37,6 +35,14 @@ class QuotationsController < ApplicationController
   end
   
   private
+
+  def set_quotation
+    @quotation = Quotation.find(params[:id])
+  end
+
+  def set_client
+    @clients = Client.where(user_id: current_user.id)
+  end
 
   def quotation_params
     params.require(:quotation).permit(:name, :client_id, documents_attributes: [:document])
