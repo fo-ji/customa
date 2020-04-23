@@ -19,6 +19,11 @@ class ClientsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+
+
   private
 
   def client_params

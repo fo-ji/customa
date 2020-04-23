@@ -25,5 +25,5 @@
             .list__info--name
               = client.company_name
             .list__info--edit
-              = link_to "#" do
+              = link_to edit_client_path(client) do
                 = icon('fas', 'ellipsis-v')

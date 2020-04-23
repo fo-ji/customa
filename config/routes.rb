@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root "clients#index"
   resources :users,            only: [:index, :edit, :update]
-  resources :clients,          only: [:index, :new, :create]
+  resources :clients,          only: [:index, :new, :create, :edit]
   resources :quotations,       except: :index do
     resources :comments do
       post "create_quotation", on: :member
