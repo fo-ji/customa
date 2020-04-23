@@ -1,4 +1,7 @@
 class ClientsController < ApplicationController
+
+  before_action :set_client, only: [:edit, :update]
+
   def index
     @clients    = Client.where(user_id: current_user.id)
     @quotations = Quotation.all
@@ -31,6 +34,10 @@ class ClientsController < ApplicationController
   end
 
   private
+
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
   def client_params
     params.require(:client).permit(:company_name, :responsible_party, :address, :postal_code, :phone_number, :email).merge(user_id: current_user.id)
