@@ -11,6 +11,10 @@
       .link__icon
         = link_to edit_quotation_path, id: "link__icon" do
           = icon('fas', 'pen')
+      .nav__container--link 削除はこちら
+      .link__icon
+        = link_to quotation_path, id: "link__icon", method: :delete do
+          = icon('fas', 'trash-alt')
     .text__container
       .text__container--block
         .block__label 書類名

@@ -35,7 +35,7 @@ class QuotationsController < ApplicationController
   end
 
   def destroy
-    quotation = Quotaton.find(params[:id])
+    quotation = Quotation.find(params[:id])
     if quotation.destroy
       redirect_to root_path
     else
