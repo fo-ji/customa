@@ -1,1 +1,46 @@
-クライアント詳細ページ
+.wrapper__show
+  .client-show__container
+    .nav__container
+      .nav__container--link 編集はこちら
+      .link__icon
+        = link_to edit_client_path, id: "link__icon" do
+          = icon('fas', 'pen')
+      .nav__container--link 削除はこちら
+      .link__icon
+        = link_to client_path, id: "link__icon", method: :delete, data: {confirm: "本当に削除しますか？"} do
+          = icon('fas', 'trash-alt')
+    .text__container
+      .text__container--block
+        .block__label クライアント名
+        .block__text
+          = @client.company_name
+      .text__container--block
+        .block__label 担当者
+        .block__text
+          = @client.responsible_party
+      .text__container--block
+        .block__label メールアドレス
+        .block__text
+          = mail_to(@client.email, name = nil, html_options = {}) do
+            = @client.email
+      .text__container--block
+        .block__label 郵便番号
+        .block__text
+          = @client.postal_code
+      .text__container--block
+        .block__label 所在地
+        .block__text
+          = @client.address
+      .text__container--block
+        .block__label 電話番号
+        .block__text
+          = @client.phone_number      
+      .text__container--block
+        .block__label 作成日
+        .block__text
+          = @client.created_at.strftime('%Y/%m/%d')
+    .home__link
+      .home__link--text TOPページに戻る
+      .home__link--icon
+        = link_to root_path, id: "home__link" do
+          = icon('fas', 'home')

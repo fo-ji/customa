@@ -1,0 +1,71 @@
+@import "mixin/color";
+@import "mixin/main-document-name";
+
+* {
+  box-sizing: border-box;
+}
+
+// ページ全体
+.wrapper__show {
+  display: flex;
+  height: calc(100vh - 50px - 30px);
+}
+
+.client-show__container {
+  height: 100%;
+  width: 100%;
+  
+  .nav__container {
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 20px;
+    
+    &--link {
+      color: $fontColorBlack;
+    }
+    
+    #link__icon {
+      color: $fontColorBlack;
+      display: block;
+    }
+  }
+  
+  .text__container {
+    margin: 10px 20px 10px 10px;
+    width: 100%;
+    text-align: center;
+    
+    &--block {
+      margin: 0 auto;
+      
+      .block__label {
+        @include main-document-name();
+        font-size: 18px;
+      }
+      
+      .block__text {
+        margin: 0 0 20px 30px;
+        overflow-wrap: break-word;
+      }
+    }
+  }
+
+  .home__link {
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 20px;
+
+    &--text {
+      color: $fontColorBlack;
+    }
+
+    #home__link {
+      color: $fontColorBlack;
+      display: block;
+    }
+  }
+}
