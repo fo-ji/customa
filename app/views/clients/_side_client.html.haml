@@ -24,6 +24,10 @@
           %li.list__info
             .list__info--name
               = client.company_name
-            .list__info--edit
-              = link_to edit_client_path(client) do
-                = icon('fas', 'ellipsis-v')
+            .list__info--nav
+              .nav__edit
+                = link_to edit_client_path(client) do
+                  = icon('fas', 'ellipsis-v')
+              .nav__delite
+                = link_to client_path(client), method: :delete, data: {confirm: "本当に削除しますか？"} do
+                  = icon('fas', 'trash-alt')
