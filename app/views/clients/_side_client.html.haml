@@ -23,7 +23,8 @@
         - @clients.each do |client|
           %li.list__info
             .list__info--name
-              = client.company_name
+              = link_to client_path(client) do
+                = client.company_name
             .list__info--nav
               .nav__edit
                 = link_to edit_client_path(client) do
