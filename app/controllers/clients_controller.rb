@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
 
-  before_action :set_client, only: [:edit, :update]
+  before_action :set_client, only: [:show, :edit, :update]
 
   def index
     @clients    = Client.where(user_id: current_user.id)
@@ -23,7 +23,6 @@ class ClientsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
