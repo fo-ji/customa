@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
   def create_quotation
     comment = Comment.new(comment_quotation_params)
-    comment.save
-    redirect_to "/quotations/#{comment.quotation.id}"
-
-    # 非同期で更新させるように追加実装する
-
+    if comment.save
+      redirect_to "/quotations/#{comment.quotation.id}"
+    else
+      redirect_to quotation_comment_path
+    end
   end
 
   private
