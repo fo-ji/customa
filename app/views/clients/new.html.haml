@@ -3,26 +3,5 @@
     .client-form__header--title
       %h2.title__name クライアント登録
 
-  .client-form__container
-    .form__box
-      = form_with(model: @client, local: true) do |f|
-        .field
-          = f.label :company_name, "会社名", class: "field__name"
-          = f.text_field :company_name, autofocus: true, autocomplete: "company_name", class: "field__size"
-        .field
-          = f.label :responsible_party, "担当者名", class: "field__name"
-          = f.text_field :responsible_party, autocomplete: "responsible_party", class: "field__size"
-        .field
-          = f.label :postal_code, "郵便番号 ※半角数字、「-」(ハイフン)も入力して下さい", class: "field__name"
-          = f.text_field :postal_code, autocomplete: "postal_code", placeholder: "例）123-4567", class: "field__size"
-        .field
-          = f.label :address, "所在地", class: "field__name"
-          = f.text_field :address, autocomplete: "address", placeholder: "例）東京都渋谷区渋谷1-1", class: "field__size"
-        .field
-          = f.label :phone_number, "電話番号 ※半角数字、「-」(ハイフン)も入力して下さい", class: "field__name"
-          = f.text_field :phone_number, autocomplete: "phone_number", placeholder: "例）03-4567-8901", class: "field__size"
-        .field
-          = f.label :email, "メールアドレス", class: "field__name"
-          = f.email_field :email, autocomplete: "email", class: "field__size"
-        .actions
-          = f.submit "登   録", class: "submit-btn"
+  = render @client
+  
