@@ -1,6 +1,7 @@
 class Quotation < ApplicationRecord
   belongs_to :client
   has_many :documents
+  has_many :comments
 
   validates :name, presence: true
 
