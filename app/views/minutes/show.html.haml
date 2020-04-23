@@ -9,8 +9,12 @@
     .nav__container
       .nav__container--link 編集はこちら
       .link__icon
-        = link_to "#", id: "link__icon" do
+        = link_to edit_minute_path, id: "link__icon" do
           = icon('fas', 'pen')
+      .nav__container--link 削除はこちら
+      .link__icon
+        = link_to minute_path, id: "link__icon", method: :delete do
+          = icon('fas', 'trash-alt')
     .text__container
       .text__container--block
         .block__label 書類名

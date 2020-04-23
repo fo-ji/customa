@@ -1,0 +1,19 @@
+.wrapper__upload--form
+
+  .file-upload__form
+    .file-upload__form--header
+      .header__title
+        %h2.header__title--name その他の編集
+
+    .file-upload__form--container
+      .form__box
+        = form_with(model: @other, local: true) do |f|
+          .field
+            = f.label :name, "ファイル名", class: "field__name"
+            = f.text_field :name, autofocus: true, autocomplete: "name", class: "field__size"
+          .field
+            = f.label :client_id, "クライアント名", class: "field__name"
+            = f.collection_select(:client_id, @clients, :id, :company_name, {prompt: "---"}, class: "field__size")
+
+          .actions
+            = f.submit "更   新", class: "submit-btn"
