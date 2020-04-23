@@ -22,6 +22,20 @@ class QuotationsController < ApplicationController
     @comments = @quotation.comments
   end
 
+  def edit
+    @quotation = Quotation.find(params[:id])
+    @clients = Client.where(user_id: current_user.id)
+  end
+
+  def update
+    @quotation = Quotation.find(params[:id])
+    if @quotation.update(quotation_params)
+      redirect_to quotation_path
+    else
+      render :edit
+    end
+  end
+  
   private
 
   def quotation_params
