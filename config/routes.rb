@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       post "create_minute",    on: :member
     end
   end
-  resources :others,           only: [:new, :create, :show] do
+  resources :others,           except: :index do
     resources :comments do
       post "create_other",     on: :member
     end
