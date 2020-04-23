@@ -25,6 +25,19 @@
         .block__text
           = @minute.created_at.strftime('%Y/%m/%d')
       .text__container--block
-        .block__label コメント
+        .block__label コメントする
+        = form_with(model: [@minute, @comment], url: create_minute_minute_comment_path(@minute)) do |f|
+          = f.text_area :comment, placeholder: "（例）4月17日に◯◯へ提出予定", class: "wide__area"
+          = f.submit "SEND"
+
+      .text__container--block
+        .block__label コメント一覧
         .block__text--wide
-          = "仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置。き、仮。置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き仮置き"
+          %ul.comment__list
+          - if @comments
+            - @comments.each do |comment|
+              .comment__list--all
+                %li.comment__list--text
+                  = comment.comment
+                %li.comment__list--date
+                  = comment.created_at.strftime('%Y/%m/%d')
