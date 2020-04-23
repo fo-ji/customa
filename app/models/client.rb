@@ -1,6 +1,6 @@
 class Client < ApplicationRecord
   has_many   :quotations, dependent: :destroy
-  has_many   :minuteses,  dependent: :destroy
+  has_many   :minutes,    dependent: :destroy
   has_many   :others,     dependent: :destroy
   belongs_to :user
 

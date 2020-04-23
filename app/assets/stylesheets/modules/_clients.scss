@@ -83,10 +83,22 @@
             color: $fontColorFlesh;
           }
 
-          &--edit {
+          &--nav {
+            display: flex;
 
-            i {
-              color: $fontColorFlesh;
+            .nav__edit {
+              margin-right: 20px;
+
+              i {
+                color: $fontColorFlesh;
+              }
+            }
+
+            .nav__edit {
+
+              i {
+                color: $fontColorFlesh;
+              }
             }
           }
         }
