@@ -1,7 +1,7 @@
 class Minute < ApplicationRecord
   belongs_to :client
-  has_many :documents
-  has_many :comments
+  has_many   :documents, dependent: :destroy
+  has_many   :comments,  dependent: :destroy
 
   validates :name, presence: true
   

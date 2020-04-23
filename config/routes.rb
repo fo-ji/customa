@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       post "create_quotation", on: :member
     end
   end
-  resources :minutes,          only: [:new, :create, :show] do
+  resources :minutes,          except: :index do
     resources :comments do
       post "create_minute",    on: :member
     end
