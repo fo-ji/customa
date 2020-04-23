@@ -19,6 +19,17 @@ class ClientsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @client.update(client_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def client_params
