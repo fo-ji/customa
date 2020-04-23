@@ -18,6 +18,8 @@ class OthersController < ApplicationController
 
   def show
     @other = Other.find(params[:id])
+    @comment = Comment.new
+    @comments = @other.comments
   end
 
   private
