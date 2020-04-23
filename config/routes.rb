@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
   resources :others,     only: [:new, :create, :show] do
-    resources :comments
+    resources :comments do
+      post "create_other", on: :member
+    end
   end
 end
