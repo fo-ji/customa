@@ -22,9 +22,11 @@ class CommentsController < ApplicationController
   end
 
   def create_other
-    comment = Comment.new(comment_other_params)
-    if comment.save
-      redirect_to "/others/#{comment.other.id}"
+    @comment = Comment.new(comment_other_params)
+    if @comment.save
+      respond_to do |format|
+        format.json
+      end
     else
       redirect_to other_comment_path
     end
