@@ -1,5 +1,4 @@
 .main-document
-
   .main-document__header
     .main-document__header--title
       .title__name 保存ファイル一覧
@@ -13,6 +12,9 @@
           - @quotations.each do |quotation|
             = link_to quotation_path(quotation.id) do
               .quotation__list--all
+                %li.quotation__list--bookmark
+                  = link_to "#", id: "bookmark-link" do
+                    = icon('fas', 'bookmark fa-2x')
                 %li.quotation__list--name
                   = quotation.name
                 %li.quotation__list--date 
@@ -26,6 +28,9 @@
           - @minutes.each do |minute|
             = link_to minute_path(minute.id) do
               .minutes__list--all
+                %li.quotation__list--bookmark
+                  = link_to "#", id: "bookmark-link" do
+                    = icon('fas', 'bookmark fa-2x')
                 %li.minutes__list--name
                   = minute.name
                 %li.minutes__list--date 
@@ -39,11 +44,13 @@
           - @others.each do |other|
             = link_to other_path(other.id) do
               .other__list--all
+                %li.quotation__list--bookmark
+                  = link_to "#", id: "bookmark-link" do
+                    = icon('fas', 'bookmark fa-2x')
                 %li.other__list--name
                   = other.name
                 %li.other__list--date 
                   = "作成日：#{other.created_at.strftime('%Y/%m/%d')}"
-
 
   .main-document__footer
     .main-document__footer--upload
