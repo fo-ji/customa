@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_014524) do
+ActiveRecord::Schema.define(version: 2020_04_29_075618) do
+
+  create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "quotation_id"
+    t.bigint "minute_id"
+    t.bigint "other_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["minute_id"], name: "index_bookmarks_on_minute_id"
+    t.index ["other_id"], name: "index_bookmarks_on_other_id"
+    t.index ["quotation_id"], name: "index_bookmarks_on_quotation_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", null: false
@@ -102,6 +115,10 @@ ActiveRecord::Schema.define(version: 2020_04_22_014524) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "minutes"
+  add_foreign_key "bookmarks", "others"
+  add_foreign_key "bookmarks", "quotations"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "comments", "minutes"
   add_foreign_key "comments", "others"
