@@ -28,6 +28,7 @@ $(function(){
       var html = buildHTML(data);
       $('.block__text--wide').append(html);
        $('form')[0].reset();
+       $('.block__text--wide').animate({ scrollTop: $('.block__text--wide')[0].scrollHeight});
     })
   });
 });
