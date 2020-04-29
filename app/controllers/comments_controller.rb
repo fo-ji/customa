@@ -11,9 +11,11 @@ class CommentsController < ApplicationController
   end
 
   def create_minute
-    comment = Comment.new(comment_minute_params)
-    if comment.save
-      redirect_to "/minutes/#{comment.minute.id}"
+    @comment = Comment.new(comment_minute_params)
+    if @comment.save
+      respond_to do |format|
+        format.json
+      end
     else
       redirect_to minute_comment_path
     end
