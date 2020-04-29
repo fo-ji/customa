@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_quotation_params)
     if comment.save
       respond_to do |format|
-        format.json
+        format.json_qu
       end
     else
       redirect_to quotation_comment_path
