@@ -30,9 +30,9 @@
           = @quotation.created_at.strftime('%Y/%m/%d')
       .text__container--block
         .block__label コメントする
-        = form_with(model: [@quotation, @comment], url: create_quotation_quotation_comment_path(@quotation)) do |f|
+        = form_with(model: [@quotation, @comment], url: create_quotation_quotation_comment_path(@quotation), id: "document__comment", local: true) do |f|
           = f.text_area :comment, placeholder: "（例）4月17日に◯◯へ提出予定", class: "wide__area"
-          = f.submit "SEND"
+          = f.submit "SEND", class: "submit-btn"
 
       .text__container--block
         .block__label コメント一覧

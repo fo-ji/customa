@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
   def create_quotation
-    comment = Comment.new(comment_quotation_params)
-    if comment.save
-      redirect_to "/quotations/#{comment.quotation.id}"
+    @comment = Comment.new(comment_quotation_params)
+    if @comment.save
+      respond_to do |format|
+        format.json
+      end
     else
       redirect_to quotation_comment_path
     end
