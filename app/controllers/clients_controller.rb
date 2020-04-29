@@ -8,6 +8,16 @@ class ClientsController < ApplicationController
     @minutes    = Minute.all
     @others     = Other.all
   end
+  
+  def selected_client
+    respond_to do |format|
+      format.html
+      format.json do
+        selected_client = Client.find(params[:client_id])
+        @selected_quotations = selected_client.quotations
+      end
+    end
+  end
 
   def new
     @client = Client.new

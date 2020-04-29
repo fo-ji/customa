@@ -22,7 +22,7 @@
       %ul.client__list
         - @clients.each do |client|
           %li.list__info
-            .list__info--name{id: "tab__switch"}
+            .list__info--name{"data-id": client.id}
               = client.company_name
             .list__info--show
               = link_to "詳細", client_path(client)
