@@ -32,15 +32,21 @@
       .center__box
         %ul.minutes__list
           - @minutes.each do |minute|
-            = link_to minute_path(minute.id) do
-              .minutes__list--all
-                %li.quotation__list--bookmark
-                  = link_to "#", id: "bookmark__link" do
+            .minutes__list--all
+              %li.minutes__list--bookmark
+                - if !Bookmark.exists?(user_id:current_user.id, minute_id: minute.id)
+                  = link_to minute_add_path(minute), class: "bookmark__icon", method: :post do
+                    = icon('far', 'bookmark fa-2x')
+                - else
+                  = link_to minute_add_path(minute), class: "bookmark__icon", method: :delete do
                     = icon('fas', 'bookmark fa-2x')
-                %li.minutes__list--name
-                  = minute.name
-                %li.minutes__list--date 
-                  = "作成日：#{minute.created_at.strftime('%Y/%m/%d')}"
+              
+              = link_to minute_path(minute.id) do
+                .minutes__list--nav
+                  %li.minutes__list--name
+                    = minute.name
+                  %li.minutes__list--date 
+                    = "作成日：#{minute.created_at.strftime('%Y/%m/%d')}"
 
     .main-document__container--right
       .right__title

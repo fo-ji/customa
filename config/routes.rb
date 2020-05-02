@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     resources :comments do
       post "create_minute",    on: :member
     end
+    post "add"    => "bookmarks#create_minute_bookmark"
+    delete "/add" => "bookmarks#destroy_minute_bookmark"
   end
 
   resources :others,           except: :index do
