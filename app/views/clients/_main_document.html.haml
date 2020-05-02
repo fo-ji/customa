@@ -10,15 +10,21 @@
       .left__box
         %ul.quotation__list
           - @quotations.each do |quotation|
-            = link_to quotation_path(quotation.id) do
-              .quotation__list--all
-                %li.quotation__list--bookmark
-                  = link_to "#", id: "bookmark-link" do
+            .quotation__list--all
+              %li.quotation__list--bookmark
+                - if !Bookmark.exists?(user_id:current_user.id, quotation_id: quotation.id)
+                  = link_to quotation_add_path(quotation), class: "bookmark__icon", method: :post do
+                    = icon('far', 'bookmark fa-2x')
+                - else
+                  = link_to quotation_add_path(quotation), class: "bookmark__icon", method: :delete do
                     = icon('fas', 'bookmark fa-2x')
-                %li.quotation__list--name
-                  = quotation.name
-                %li.quotation__list--date 
-                  = "作成日：#{quotation.created_at.strftime('%Y/%m/%d')}"
+              
+              = link_to quotation_path(quotation.id) do
+                .quotation__list--nav
+                  %li.quotation__list--name
+                    = quotation.name
+                  %li.quotation__list--date 
+                    = "作成日：#{quotation.created_at.strftime('%Y/%m/%d')}"
 
     .main-document__container--center
       .center__title
@@ -29,7 +35,7 @@
             = link_to minute_path(minute.id) do
               .minutes__list--all
                 %li.quotation__list--bookmark
-                  = link_to "#", id: "bookmark-link" do
+                  = link_to "#", id: "bookmark__link" do
                     = icon('fas', 'bookmark fa-2x')
                 %li.minutes__list--name
                   = minute.name
@@ -45,7 +51,7 @@
             = link_to other_path(other.id) do
               .other__list--all
                 %li.quotation__list--bookmark
-                  = link_to "#", id: "bookmark-link" do
+                  = link_to "#", class: "bookmark-link" do
                     = icon('fas', 'bookmark fa-2x')
                 %li.other__list--name
                   = other.name
