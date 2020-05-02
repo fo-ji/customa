@@ -40,4 +40,25 @@ class BookmarksController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def create_other_bookmark
+    user = current_user
+    other = Other.find(params[:other_id])
+    if Bookmark.create(user_id: user.id, other_id: other.id)
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+  def destroy_other_bookmark
+    user = current_user
+    other = Other.find(params[:other_id])
+    if bookmark = Bookmark.find_by(user_id: user.id, other_id: other.id)
+      bookmark.delete
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
 end

@@ -267,6 +267,26 @@
 
           &--all {
             @include space-between();
+          }
+
+          &--bookmark {
+            margin-left: 10px;
+            
+            .bookmark__icon {
+              i {
+                display: block;
+                text-decoration: none;
+                color: $bookmarkColoryellow;
+                padding-left: 10px;
+                padding-top: 5px;
+                font-size: 18px;
+              }
+            }
+          }
+
+          &--nav {
+            width: 450px;
+            @include space-between();
             color: $fontColorBlack;
             padding-left: 10px;
             padding-top: 5px;

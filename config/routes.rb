@@ -34,5 +34,7 @@ Rails.application.routes.draw do
     resources :comments do
       post "create_other",     on: :member
     end
+    post "add"    => "bookmarks#create_other_bookmark"
+    delete "/add" => "bookmarks#destroy_other_bookmark"
   end
 end
