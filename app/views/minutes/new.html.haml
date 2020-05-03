@@ -18,6 +18,8 @@
             = f.label :document, "見積書をアップロード", class: "field__name"
             = f.fields_for :documents do |document|
               = document.file_field :document, class: "dropzone", id: "upload-dropzone"
+          .field__hidden
+            = f.hidden_field :user_id, value: current_user.id
 
           .actions
             = f.submit "登   録", class: "submit-btn"

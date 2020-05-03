@@ -54,6 +54,6 @@ class QuotationsController < ApplicationController
   end
 
   def quotation_params
-    params.require(:quotation).permit(:name, :client_id, documents_attributes: [:document])
+    params.require(:quotation).permit(:name, :client_id, :user_id, documents_attributes: [:document])
   end
 end

@@ -2,4 +2,55 @@
   .upload-contents
     %h2.upload-contents__title 最近のアップロード履歴
   .important-contents
-    %h2.important-contents__title 重要タグ付き一覧
+    %h2.important-contents__title ブックマーク書類の一覧
+
+    .quotation__bookmark
+      .quotation__bookmark--title 見積書
+      - if @quotations.present?
+        %ul.quotation__list
+          - @quotations.each do |bookmark_quotation|
+            .quotation__list--all
+              %li.quotation__list--bookmark
+                = icon('fas', 'bookmark fa-2x')
+            = link_to quotation_path(bookmark_quotation.id) do
+              .quotation__list--nav
+                %li.quotation__list--name
+                  = bookmark_quotation.name
+                %li.quotation__list--date 
+                  = "作成日：#{bookmark_quotation.created_at.strftime('%Y/%m/%d')}"
+      - else
+        .quotation__notice bookmarkの登録はありません
+
+    .minute__bookmark
+      .minute__bookmark--title 議事録
+      - if @minutes.present?
+        %ul.minute__list
+          - @minutes.each do |bookmark_minute|
+            .minute__list--all
+              %li.minute__list--bookmark
+                = icon('fas', 'bookmark fa-2x')
+            = link_to minute_path(bookmark_minute.id) do
+              .minute__list--nav
+                %li.minute__list--name
+                  = bookmark_minute.name
+                %li.minute__list--date 
+                  = "作成日：#{bookmark_minute.created_at.strftime('%Y/%m/%d')}"
+      - else
+        .minute__notice bookmarkの登録はありません
+
+    .other__bookmark
+      .other__bookmark--title その他
+      - if @others.present?
+        %ul.other__list
+          - @others.each do |bookmark_other|
+            .other__list--all
+              %li.other__list--bookmark
+                = icon('fas', 'bookmark fa-2x')
+            = link_to other_path(bookmark_other.id) do
+              .other__list--nav
+                %li.other__list--name
+                  = bookmark_other.name
+                %li.other__list--date 
+                  = "作成日：#{bookmark_other.created_at.strftime('%Y/%m/%d')}"
+      - else
+        .other__notice bookmarkの登録はありません
