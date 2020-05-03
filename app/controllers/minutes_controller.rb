@@ -54,6 +54,6 @@ class MinutesController < ApplicationController
   end
 
   def minute_params
-    params.require(:minute).permit(:name, :client_id, documents_attributes: [:document])
+    params.require(:minute).permit(:name, :client_id, :user_id, documents_attributes: [:document])
   end
 end

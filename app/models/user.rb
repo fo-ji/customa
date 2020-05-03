@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :sns_credentials
   has_many :clients,    dependent: :destroy
   has_many :quotations, dependent: :destroy
+  has_many :minutes,    dependent: :destroy
+  has_many :others,     dependent: :destroy
   has_many :bookmarks,  dependent: :destroy
 
   def self.from_omniauth(auth)

@@ -54,6 +54,6 @@ class OthersController < ApplicationController
   end
 
   def other_params
-    params.require(:other).permit(:name, :client_id, documents_attributes: [:document])
+    params.require(:other).permit(:name, :client_id, :user_id, documents_attributes: [:document])
   end
 end
