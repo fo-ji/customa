@@ -2,4 +2,35 @@
   .upload-contents
     %h2.upload-contents__title 最近のアップロード履歴
   .important-contents
-    %h2.important-contents__title 重要タグ付き一覧
+    %h2.important-contents__title ブックマーク書類の一覧
+
+    .quotation__bookmark
+      .quotation__bookmark--title 見積書
+      - if @quotations.present?
+        %ul.quotation__list
+          - @quotations.each do |bookmark_quotation|
+            .quotation__list--all
+              %li.quotation__list--bookmark
+                = icon('fas', 'bookmark fa-2x')
+            = link_to quotation_path(bookmark_quotation.id) do
+              .quotation__list--nav
+                %li.quotation__list--name
+                  = bookmark_quotation.name
+                %li.quotation__list--date 
+                  = "作成日：#{bookmark_quotation.created_at.strftime('%Y/%m/%d')}"
+      - else
+        .quotation__notice bookmarkの登録はありません
+
+
+    -#   .quotation__box
+    -#     %ul.quotation__list
+    -#     - @bookmarks.each do |bookmark_quotation|
+    -#       .quotation__list--all
+    -#         %li.quotation__list--bookmark
+    -#           = icon('far', 'bookmark fa-2x')
+    -#       = link_to quotation_path(bookmark.quotation.id) do
+    -#         .quotation__list--nav
+    -#           %li.quotation__list--name
+    -#             = quotation.name
+    -#           %li.quotation__list--date 
+    -#             = "作成日：#{quotation.created_at.strftime('%Y/%m/%d')}"

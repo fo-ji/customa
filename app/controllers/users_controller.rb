@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @quotations = Quotation.joins(:bookmarks).where(user_id: current_user.id)
   end
 
   def edit
