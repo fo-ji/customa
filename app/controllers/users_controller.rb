@@ -3,6 +3,9 @@ class UsersController < ApplicationController
     @quotations = Quotation.joins(:bookmarks).where(user_id: current_user.id)
     @minutes    = Minute.joins(:bookmarks).where(user_id: current_user.id)
     @others     = Other.joins(:bookmarks).where(user_id: current_user.id)
+    @recent_quotations = Quotation.where(user_id: current_user.id).order(created_at: "DESC").limit(5)
+    @recent_minutes    = Minute.where(user_id: current_user.id).order(created_at: "DESC").limit(5)
+    @recent_others     = Other.where(user_id: current_user.id).order(created_at: "DESC").limit(5)
   end
 
   def edit
