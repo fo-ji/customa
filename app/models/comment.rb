@@ -1,7 +1,6 @@
 class Comment < ApplicationRecord
-  belongs_to :quotation, optional: true
-  belongs_to :minute,    optional: true
-  belongs_to :other,     optional: true
+  belongs_to :document
+  belongs_to :user
 
   validates :comment, presence: true
 end
