@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_29_075618) do
-
-  create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "quotation_id"
-    t.bigint "minute_id"
-    t.bigint "other_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["minute_id"], name: "index_bookmarks_on_minute_id"
-    t.index ["other_id"], name: "index_bookmarks_on_other_id"
-    t.index ["quotation_id"], name: "index_bookmarks_on_quotation_id"
-    t.index ["user_id"], name: "index_bookmarks_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2020_04_12_070852) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", null: false
@@ -36,66 +23,6 @@ ActiveRecord::Schema.define(version: 2020_04_29_075618) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clients_on_user_id"
-  end
-
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "comment", null: false
-    t.bigint "quotation_id"
-    t.bigint "minute_id"
-    t.bigint "other_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["minute_id"], name: "index_comments_on_minute_id"
-    t.index ["other_id"], name: "index_comments_on_other_id"
-    t.index ["quotation_id"], name: "index_comments_on_quotation_id"
-  end
-
-  create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "document", null: false
-    t.bigint "quotation_id"
-    t.bigint "minute_id"
-    t.bigint "other_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["minute_id"], name: "index_documents_on_minute_id"
-    t.index ["other_id"], name: "index_documents_on_other_id"
-    t.index ["quotation_id"], name: "index_documents_on_quotation_id"
-  end
-
-  create_table "minutes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "row_order"
-    t.bigint "client_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_minutes_on_client_id"
-    t.index ["name"], name: "index_minutes_on_name"
-    t.index ["user_id"], name: "index_minutes_on_user_id"
-  end
-
-  create_table "others", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "row_order"
-    t.bigint "client_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_others_on_client_id"
-    t.index ["name"], name: "index_others_on_name"
-    t.index ["user_id"], name: "index_others_on_user_id"
-  end
-
-  create_table "quotations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "row_order"
-    t.bigint "client_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_quotations_on_client_id"
-    t.index ["name"], name: "index_quotations_on_name"
-    t.index ["user_id"], name: "index_quotations_on_user_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -121,22 +48,6 @@ ActiveRecord::Schema.define(version: 2020_04_29_075618) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookmarks", "minutes"
-  add_foreign_key "bookmarks", "others"
-  add_foreign_key "bookmarks", "quotations"
-  add_foreign_key "bookmarks", "users"
   add_foreign_key "clients", "users"
-  add_foreign_key "comments", "minutes"
-  add_foreign_key "comments", "others"
-  add_foreign_key "comments", "quotations"
-  add_foreign_key "documents", "minutes"
-  add_foreign_key "documents", "others"
-  add_foreign_key "documents", "quotations"
-  add_foreign_key "minutes", "clients"
-  add_foreign_key "minutes", "users"
-  add_foreign_key "others", "clients"
-  add_foreign_key "others", "users"
-  add_foreign_key "quotations", "clients"
-  add_foreign_key "quotations", "users"
   add_foreign_key "sns_credentials", "users"
 end

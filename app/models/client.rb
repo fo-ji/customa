@@ -1,7 +1,5 @@
 class Client < ApplicationRecord
-  has_many   :quotations, dependent: :destroy
-  has_many   :minutes,    dependent: :destroy
-  has_many   :others,     dependent: :destroy
+  has_many :documents
   belongs_to :user
 
   validates :company_name, :responsible_party, :address, :postal_code, :phone_number, :email, :user_id, presence: true

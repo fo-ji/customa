@@ -1,9 +1,13 @@
 class Document < ApplicationRecord
-  belongs_to :quotation, optional: true
-  belongs_to :minute,    optional: true
-  belongs_to :other,     optional: true
+  has_many   :comments,  dependent: :destroy
+  has_one    :bookmarks, dependent: :destroy
+  belongs_to :client
+  belongs_to :user
+  
+  validates :name,     presence: true, uniqueness: true
+  validates :document, :category, presence: true
 
   mount_uploader :document, FileUploader
 
-  validates :document, presence: true
+  enum category: { 見積書: 0, 議事録: 1, その他: 2 }
 end
