@@ -18,7 +18,7 @@
 
 ## ER図
 
-![Customa_個人アプリ](https://user-images.githubusercontent.com/57491651/78105751-ddfdc400-742c-11ea-8578-6371ca9d6a35.png)
+![Customa_個人アプリ](https://user-images.githubusercontent.com/57491651/81266553-e1194f00-907f-11ea-81dd-2e5434b9ca2e.png)
 
 # テーブル
 ## Usersテーブル
@@ -32,7 +32,9 @@
 ### Association
 - has_many :clients
 - has_many :sns_credentials
-
+- has_many :documents
+- has_many :comments
+- has_many :bookmarks
 
 ## Clientsテーブル
 
@@ -47,78 +49,45 @@
 |user             |references|null: false, foreign_key: true|
 
 ### Association
-- has_many   :quotations
-- has_many   :minuteses
-- has_many   :others
+- has_many   :documents
 - belongs_to :user
-
-
-## Quotationsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name     |string    ||
-|row_order|integer   |null: false|
-|client_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :clients
-- has_many   :documents
-- has_one :comment
-
-
-## Minutesesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name     |string    ||
-|row_order|integer   |null: false|
-|client_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :clients
-- has_many   :documents
-- has_one :comment
-
-
-## Othersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name     |string    ||
-|row_order|integer   |null: false|
-|client_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :clients
-- has_many   :documents
-- has_one :comment
 
 ## Documentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |document     |string    |null: false|
-|quotation_id |references|null: false, foreign_key: true|
-|minutes_id   |references|null: false, foreign_key: true|
-|other_id     |references|null: false, foreign_key: true|
+|name         |string    |null: false|
+|category     |integer   |null: false|
+|row_order    |integer   ||
+|client_id    |references|null: false, foreign_key: true|
+|user_id      |references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :quotation
-- belongs_to :minutes
-- belongs_to :other
-
+- belongs_to :client
+- belongs_to :user
+- has_many   :comments
+- has_one    :bookmarks
 
 ## Commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |comment     |string    |null: false|
-|quotation_id|references|null: false, foreign_key: true|
-|minutes_id  |references|null: false, foreign_key: true|
-|other_id    |references|null: false, foreign_key: true|
+|document_id |references|null: false, foreign_key: true|
+|user_id     |references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :quotation
-- belongs_to :minutes
-- belongs_to :other
+- belongs_to :document
+- belongs_to :user
+
+## Bookmarksテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id     |references|null: false, foreign_key: true|
+|document_id |references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :document
