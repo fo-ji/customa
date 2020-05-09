@@ -1,6 +1,6 @@
 class Document < ApplicationRecord
   has_many   :comments,  dependent: :destroy
-  has_one    :bookmarks, dependent: :destroy
+  has_many   :bookmarks, dependent: :destroy
   belongs_to :client
   belongs_to :user
   

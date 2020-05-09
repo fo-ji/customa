@@ -4,9 +4,9 @@ class ClientsController < ApplicationController
 
   def index
     @clients    = Client.where(user_id: current_user.id)
-    @quotations = Quotation.where(user_id: current_user.id)
-    @minutes    = Minute.where(user_id: current_user.id)
-    @others     = Other.where(user_id: current_user.id)
+    @quotations = Document.where(user_id: current_user.id, category: 0)
+    @minutes    = Document.where(user_id: current_user.id, category: 1)
+    @others     = Document.where(user_id: current_user.id, category: 2)
   end
   
   def selected_client

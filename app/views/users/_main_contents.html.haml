@@ -8,7 +8,7 @@
         %ul.quotation__list
           - @recent_quotations.each do |recent_quotation|
             .quotation__list--all
-              = link_to quotation_path(recent_quotation.id) do
+              = link_to document_path(recent_quotation.id) do
                 .quotation__list--nav
                   %li.quotation__list--name
                     = recent_quotation.name
@@ -23,7 +23,7 @@
         %ul.minute__list
           - @recent_minutes.each do |recent_minute|
             .minute__list--all
-              = link_to minute_path(recent_minute.id) do
+              = link_to document_path(recent_minute.id) do
                 .miniute__list--nav
                   %li.minute__list--name
                     = recent_minute.name
@@ -38,7 +38,7 @@
         %ul.other__list
           - @recent_others.each do |recent_other|
             .other__list--all
-              = link_to other_path(recent_other.id) do
+              = link_to document_path(recent_other.id) do
                 .other__list--nav
                   %li.other__list--name
                     = recent_other.name
@@ -58,7 +58,7 @@
             .quotation__list--all
               %li.quotation__list--bookmark
                 = icon('fas', 'bookmark fa-2x')
-            = link_to quotation_path(bookmark_quotation.id) do
+            = link_to document_path(bookmark_quotation.id) do
               .quotation__list--nav
                 %li.quotation__list--name
                   = bookmark_quotation.name
@@ -75,7 +75,7 @@
             .minute__list--all
               %li.minute__list--bookmark
                 = icon('fas', 'bookmark fa-2x')
-            = link_to minute_path(bookmark_minute.id) do
+            = link_to document_path(bookmark_minute.id) do
               .minute__list--nav
                 %li.minute__list--name
                   = bookmark_minute.name
@@ -92,7 +92,7 @@
             .other__list--all
               %li.other__list--bookmark
                 = icon('fas', 'bookmark fa-2x')
-            = link_to other_path(bookmark_other.id) do
+            = link_to document_path(bookmark_other.id) do
               .other__list--nav
                 %li.other__list--name
                   = bookmark_other.name

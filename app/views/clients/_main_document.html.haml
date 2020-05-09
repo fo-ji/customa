@@ -12,13 +12,13 @@
           - @quotations.each do |quotation|
             .quotation__list--all
               %li.quotation__list--bookmark
-                - if !Bookmark.exists?(user_id:current_user.id, quotation_id: quotation.id)
-                  = link_to quotation_add_path(quotation), class: "bookmark__icon", method: :post do
+                - if !Bookmark.exists?(user_id:current_user.id, document_id: quotation.id)
+                  = link_to document_add_path(quotation), class: "bookmark__icon", method: :post do
                     = icon('far', 'bookmark fa-2x')
                 - else
-                  = link_to quotation_add_path(quotation), class: "bookmark__icon", method: :delete do
+                  = link_to document_add_path(quotation), class: "bookmark__icon", method: :delete do
                     = icon('fas', 'bookmark fa-2x')
-              = link_to quotation_path(quotation.id) do
+              = link_to document_path(quotation.id) do
                 .quotation__list--nav
                   %li.quotation__list--name
                     = quotation.name
@@ -33,13 +33,13 @@
           - @minutes.each do |minute|
             .minutes__list--all
               %li.minutes__list--bookmark
-                - if !Bookmark.exists?(user_id:current_user.id, minute_id: minute.id)
-                  = link_to minute_add_path(minute), class: "bookmark__icon", method: :post do
+                - if !Bookmark.exists?(user_id:current_user.id, document_id: minute.id)
+                  = link_to document_add_path(minute), class: "bookmark__icon", method: :post do
                     = icon('far', 'bookmark fa-2x')
                 - else
-                  = link_to minute_add_path(minute), class: "bookmark__icon", method: :delete do
+                  = link_to document_add_path(minute), class: "bookmark__icon", method: :delete do
                     = icon('fas', 'bookmark fa-2x')
-              = link_to minute_path(minute.id) do
+              = link_to document_path(minute.id) do
                 .minutes__list--nav
                   %li.minutes__list--name
                     = minute.name
@@ -54,13 +54,13 @@
           - @others.each do |other|
             .other__list--all
               %li.other__list--bookmark
-                - if !Bookmark.exists?(user_id:current_user.id, other_id: other.id)
-                  = link_to other_add_path(other), class: "bookmark__icon", method: :post do
+                - if !Bookmark.exists?(user_id:current_user.id, document_id: other.id)
+                  = link_to document_add_path(other), class: "bookmark__icon", method: :post do
                     = icon('far', 'bookmark fa-2x')
                 - else
-                  = link_to other_add_path(other), class: "bookmark__icon", method: :delete do
+                  = link_to document_add_path(other), class: "bookmark__icon", method: :delete do
                     = icon('fas', 'bookmark fa-2x')
-              = link_to other_path(other.id) do
+              = link_to document_path(other.id) do
                 .other__list--nav
                   %li.other__list--name
                     = other.name
@@ -69,6 +69,4 @@
 
   .main-document__footer
     .main-document__footer--upload
-      = link_to "見積書アップロード", new_quotation_path, class: "upload"
-      = link_to "議事録アップロード", new_minute_path, class: "upload"
-      = link_to "その他アップロード", new_other_path, class: "upload"
+      = link_to "file_upload", new_document_path, class: "upload"

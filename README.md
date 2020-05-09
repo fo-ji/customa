@@ -67,7 +67,7 @@
 - belongs_to :client
 - belongs_to :user
 - has_many   :comments
-- has_one    :bookmarks
+- has_many   :bookmarks
 
 ## Commentsテーブル
 
