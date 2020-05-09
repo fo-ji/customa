@@ -1,48 +1,15 @@
 class CommentsController < ApplicationController
-  def create_quotation
-    @comment = Comment.new(comment_quotation_params)
-    if @comment.save
-      respond_to do |format|
-        format.json
-      end
-    else
-      redirect_to quotation_comment_path
-    end
-  end
-
-  def create_minute
-    @comment = Comment.new(comment_minute_params)
-    if @comment.save
-      respond_to do |format|
-        format.json
-      end
-    else
-      redirect_to minute_comment_path
-    end
-  end
-
-  def create_other
-    @comment = Comment.new(comment_other_params)
-    if @comment.save
-      respond_to do |format|
-        format.json
-      end
-    else
-      redirect_to other_comment_path
+  def create
+    @comment = Comment.create(comment_params)
+    respond_to do |format|
+      format.html { redirect_to document_path(params[:document_id])  }
+      format.json
     end
   end
 
   private
 
-  def comment_quotation_params
-    params.require(:comment).permit(:comment).merge(quotation_id: params[:quotation_id])
-  end
-
-  def comment_minute_params
-    params.require(:comment).permit(:comment).merge(minute_id: params[:minute_id])
-  end
-
-  def comment_other_params
-    params.require(:comment).permit(:comment).merge(other_id: params[:other_id])
+  def comment_params
+    params.require(:comment).permit(:comment).merge(document_id: params[:document_id], user_id: current_user.id)
   end
 end
