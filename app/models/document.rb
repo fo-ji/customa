@@ -10,4 +10,9 @@ class Document < ApplicationRecord
   mount_uploader :document, FileUploader
 
   enum category: { 見積書: 0, 議事録: 1, その他: 2 }
+
+  def self.search(search)
+    return Document.all unless search
+    Document.where('name LIKE(?)', "%#{search}%")
+  end
 end
