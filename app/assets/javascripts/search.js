@@ -2,7 +2,7 @@ $(function() {
 
   var search_list = $(".contents.row");
 
-  function appendTweet(document) {
+  function appendDocument(document) {
 
     if(document.user_sign_in && document.user_sign_in.id == document.user_id){
 
@@ -38,7 +38,7 @@ $(function() {
       search_list.empty();
       if (documents.length !== 0) {
         documents.forEach(function(document){
-          appendTweet(document);
+          appendDocument(document);
         });
       }
       else {

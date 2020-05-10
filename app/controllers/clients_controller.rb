@@ -13,8 +13,10 @@ class ClientsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        selected_client = Client.find(params[:client_id])
-        @selected_quotations = selected_client.quotations
+        selected_client      = Client.find(params[:client_id])
+        @selected_quotations = selected_client.documents.where(category: 0)
+        @selected_minutes    = selected_client.documents.where(category: 1)
+        @selected_others     = selected_client.documents.where(category: 2)
       end
     end
   end
