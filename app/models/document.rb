@@ -9,6 +9,9 @@ class Document < ApplicationRecord
 
   mount_uploader :document, FileUploader
 
+  include RankedModel
+  ranks :row_order
+
   enum category: { 見積書: 0, 議事録: 1, その他: 2 }
 
   def self.search(search)

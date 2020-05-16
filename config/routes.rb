@@ -15,11 +15,16 @@ Rails.application.routes.draw do
   end
   
   resources :documents,       except: :index do
+
     resources :comments, only: :create
+
     post "add"    => "bookmarks#create"
     delete "/add" => "bookmarks#destroy"
+
     collection do
       get :search
     end
+    
+    put :sort
   end
 end
