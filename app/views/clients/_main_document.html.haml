@@ -8,7 +8,10 @@
       .left__title
         .left__title--name 見積書
       .left__box
-        %ul.quotation__list
+
+        
+        -# %ul.quotation__list{data: { model_name: document.class.name.underscore, update_url: document_sort_path(document)}}
+        %ul.quotation__list{"data-model_name": "document.class.name.underscore", "data-update_url": "document_sort_path(document)"}
           - @quotations.each do |quotation|
             .quotation__list--all
               %li.quotation__list--bookmark
