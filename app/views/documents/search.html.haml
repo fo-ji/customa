@@ -1,8 +1,27 @@
-= form_with(url: search_documents_path, local: true, method: :get, class: "search-form") do |f|
-  = f.text_field :keyword, placeholder: "ファイルを検索する", class: "search-input"
-  = f.submit "検索", class: "search-btn"
-.contents.row
-  - @documents.each do |document|
-    -if document.user_id == current_user.id
-      = document.name
-      = document.category
+.document__container--search
+  .search__container
+    .search__container--result
+      = form_with(url: search_documents_path, local: true, method: :get, class: "search-form") do |f|
+        = f.text_field :keyword, placeholder: "Search here..", class: "search-input"
+        = button_tag type: "submit", class: "search-icon" do
+          = icon('fas', 'search')
+      .contents.row
+        .search__title Search Files
+        .search__nav
+          .search__nav--name Filename
+          .search__nav--category Category
+          .search__nav--date Date
+          .search__nav--file Document
+        .search__content
+          - @documents.each do |document|
+            -if document.user_id == current_user.id
+              .search__document
+                = link_to document_path(document) do
+                  .search__document--name
+                    = document.name
+                  .search__document--category
+                    = document.category
+                  .search__document--date
+                    = document.created_at.strftime('%Y/%m/%d')
+                  .search__document--file
+                    = image_tag(document.document_url, alt: "画像が表示できませんでした。", size: '50x50')
