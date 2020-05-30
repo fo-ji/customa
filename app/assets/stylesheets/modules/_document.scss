@@ -2,26 +2,21 @@
 @import "mixin/space-between";
 @import "mixin/main-document-name";
 
-* {
-  box-sizing: border-box;
-}
-
 .document__container {
   height: calc(100vh - 50px - 30px);
-  background-color: $backgroundColorGray;
   @include space-between();
   font-size: 16px;
 
   &--left {
+    margin-top: 10px;
+    margin-left: 10px;
     height: 100%;
     width: 50%;
-    background-color: lightblue;
   }
 
   &--right {
     height: 100%;
     width: 50%;
-    background-color: lightyellow;
 
     .nav__container {
       display: flex;
@@ -47,17 +42,20 @@
         
         .block__label {
           @include main-document-name();
+          width: 140px;
           font-size: 18px;
         }
         
         .block__text {
-          margin: 0 0 20px 30px;
+          font-weight: bold;
+          margin: 10px 0 20px 30px;
           overflow-wrap: break-word;
         }
 
         .wide__area {
           width: 700px;
           height: 80px;
+          margin-top: 10px;
           margin-left: 30px;
         }
 
@@ -76,6 +74,7 @@
               
               .comment__list--text {
                 width: 600px;
+                font-weight: bold;
               }
             }
           }

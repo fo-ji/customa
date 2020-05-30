@@ -2,8 +2,8 @@
 
   .file-upload__form
     .file-upload__form--header
-      .header__title
-        %h2.header__title--name file_upload
+      .header__text
+        %h2.header__text--title ファイルアップロード
 
     .file-upload__form--container
       .form__box
@@ -21,8 +21,6 @@
 
           .field
             = f.label :document, "ファイルアップロード", class: "field__name"
-            -# = f.fields_for :documents do |document|
-            -#   = document.file_field :document, class: "dropzone", id: "upload-dropzone"
             = f.file_field :document, class: "dropzone", id: "upload-dropzone"
               
           .field__hidden

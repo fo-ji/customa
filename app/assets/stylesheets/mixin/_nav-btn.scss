@@ -1,10 +1,25 @@
 @mixin nav-btn() {
-  height: 40px;
-  display: block;
-  padding-top: 5px;
-  color: $fontColorBlack;
-  background-color: #98FB98;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0;
   text-decoration: none;
-  border: $fontColorBlack 1px solid;
-  border-radius: 10px;
+  color: $fontColorBlack;
+}
+
+@mixin nav-btn_before() {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top:100%;
+  left: 0;
+  border-radius: 3px;
+  background:$fontColorBlack;
+  transition: .2s;
+}
+
+@mixin nav-btn_hover_before() {
+  top: -webkit-calc(100% - 3px);
+  top: calc(100% - 3px);
 }

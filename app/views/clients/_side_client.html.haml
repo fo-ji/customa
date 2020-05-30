@@ -2,22 +2,16 @@
 
   .side-bar__header
     .side-bar__header--title
-      .title__name
-        クライアント登録
-      .title__link
-        = link_to new_client_path do
-          = icon('fas', 'plus')        
+      = link_to new_client_path do
+        .title__name クライアント登録
     .side-bar__header--show
-      .show__name
-        クライアントの一覧表示
-        -# ページリンクで最終更新日を表示させたい
-      .show__link
-        = link_to "#" do
-          = icon('fas', 'list')
+      = link_to "#" do
+        .show__name クライアントの一覧表示
+  -# ページリンクで最終更新日を表示させたい
 
   .side-bar__body
-    .side-bar__body--title
-      クライアントリスト
+    = link_to root_path do
+      .side-bar__body--title クライアントリスト
     .side-bar__body--list
       %ul.client__list
         - @clients.each do |client|
@@ -25,11 +19,7 @@
             .list__info--name{"data-id": client.id}
               = client.company_name
             .list__info--show
-              = link_to "詳細", client_path(client)
-            .list__info--nav
-              .nav__edit
-                = link_to edit_client_path(client) do
-                  = icon('fas', 'ellipsis-v')
-              .nav__delite
-                = link_to client_path(client), method: :delete, data: {confirm: "本当に削除しますか？"} do
-                  = icon('fas', 'trash-alt')
+              = link_to "詳細", client_path(client), class: "show-link"
+            .list__info--delite
+              = link_to client_path(client), method: :delete, data: {confirm: "本当に削除しますか？"} do
+                = icon('fas', 'trash-alt')

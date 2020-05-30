@@ -29,7 +29,7 @@
         .block__text
           = @document.created_at.strftime('%Y/%m/%d')
       .text__container--block
-        .block__label コメントする
+        .block__label コメント
         = form_with(model: [@document, @comment], id: "document__comment", local: true) do |f|
           = f.text_area :comment, placeholder: "（例）4月17日に◯◯へ提出予定", class: "wide__area"
           = f.submit "SEND", class: "submit-btn"

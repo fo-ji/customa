@@ -15,35 +15,32 @@
   &__title {
     width: 30%;
     padding-left: 10px;
-
+    position: relative;
+    line-height: 1.4;
+    -webkit-box-reflect: below -40px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
+    
     &--name {
       font-weight: bold;
       font-size: 26px;
-      color: $fontColorBlack;
-      line-height: 50px;
       text-decoration: none;
+      color: $fontColorBlack;
     }
   }
 
   &__search {
     width: 50%;
     padding-top: 10px;
+    display: flex;
+    
+    &--text {
+      width: 100px;
+      display: inline-block;
+      color: $fontColorBlack;
+    }
 
-    &--field {
-      height: 30px;
-      width: 350px;
-      line-height: 50px;
-      border: $fontColorBlack 1px solid;
-
-      .search__icon {
-        padding-top: 5px;
-        padding-left: 5px;
-
-        i {
-          display: block;
-          color: $fontColorBlack;
-        }
-      }
+    &--icon {
+      display: inline-block;
+      color: $fontColorBlack;
     }
   }
 
@@ -57,16 +54,28 @@
     &--mypage {
       
       .mypage-btn {
-        @include nav-btn();
         margin: 5px 10px 0 0;
+        @include nav-btn();
+      }
+      .mypage-btn:before {
+        @include nav-btn_before();
+      }
+      .mypage-btn:hover:before {
+        @include nav-btn_hover_before();
       }
     }
 
     &--logout {
 
       .logout-btn {
-        @include nav-btn();
         margin-top: 5px;
+        @include nav-btn();
+      }
+      .logout-btn:before {
+        @include nav-btn_before();
+      }
+      .logout-btn:hover:before {
+        @include nav-btn_hover_before();
       }
     }
 
@@ -74,16 +83,28 @@
     &--new {
 
       .new-btn {
-        @include nav-btn();
         margin: 5px 10px 0 0;
+        @include nav-btn();
+      }
+      .new-btn:before {
+        @include nav-btn_before();
+      }
+      .new-btn:hover:before {
+        @include nav-btn_hover_before();
       }
     }
 
     &--login {
 
       .login-btn {
-        @include nav-btn();
         margin-top: 5px;
+        @include nav-btn();
+      }
+      .login-btn:before {
+        @include nav-btn_before();
+      }
+      .login-btn:hover:before {
+        @include nav-btn_hover_before();
       }
     }
   }
