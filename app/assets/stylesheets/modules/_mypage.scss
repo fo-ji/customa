@@ -1,8 +1,7 @@
 @import "mixin/color";
-
-* {
-  box-sizing: border-box;
-}
+@import "mixin/title-border";
+@import "mixin/submit-btn";
+@import "mixin/space-between";
 
 // ページ全体
 .wrapper__mypage {
@@ -15,7 +14,33 @@
 .acount-edit {
   height: 150px;
   width: 100vw;
-  background-color: gray;
+
+  &__title {
+    margin-left: 30px;
+    padding-top: 15px;
+    font-size: 25px;
+    width: 180px;
+    @include title-border();
+  }
+
+  &__link {
+    @include submit-btn();
+    cursor: pointer;
+    margin: 5px auto;
+    margin-left: 30px;
+    margin-top: 15px;
+    background-color: #fff;
+    display: block;
+    
+    a {
+      text-decoration: none;
+      color: $fontColorBlack;
+    }
+  }
+  
+  &__link:hover {
+    background-color: gray;
+  }
 }
 
 // main-contents
@@ -25,11 +50,102 @@
 
   .upload-contents {
     width: 50%;
-    background-color: lightblue;
+
+    &__title {
+      margin-left: 30px;
+      padding-top: 15px;
+      font-size: 20px;
+      width: 230px;
+      @include title-border();
+    }
+
+    .quotation__recent {
+      margin-left: 30px;
+
+      &--title {
+        width: 50px;
+        margin-top: 10px;
+        border-bottom: solid 3px lightgray;
+
+        .quotation__list {
+
+          &--all {
+            
+            .quotation__list--nav {
+              
+              .quotation__list--name {
+
+              }
+
+              .quotation__list--date {
+
+              }
+            }
+          }
+        }
+
+        .quotation__notice {
+
+        }
+      }
+    }
+
+    .minute__recent {
+      margin-left: 30px;
+
+      &--title {
+        width: 50px;
+        margin-top: 10px;
+        border-bottom: solid 3px lightgray;
+      }
+    }
+
+    .other__recent {
+      margin-left: 30px;
+
+      &--title {
+        width: 50px;
+        margin-top: 10px;
+        border-bottom: solid 3px lightgray;
+      }
+    }
   }
 
   .important-contents {
     width: 50%;
-    background-color: lightgreen;
+
+    &__title {
+      padding-top: 15px;
+      font-size: 20px;
+      width: 230px;
+      @include title-border();
+    }
+
+    .quotation__bookmark {
+
+      &--title {
+        width: 50px;
+        margin-top: 10px;
+        border-bottom: solid 3px lightgray;
+      }
+    }
+
+    .minute__bookmark {
+
+      &--title {
+        width: 50px;
+        margin-top: 10px;
+        border-bottom: solid 3px lightgray;
+      }
+    }
+
+    .other__bookmark {
+
+      &--title {
+        width: 50px;
+        margin-top: 10px;
+        border-bottom: solid 3px lightgray;
+      }
+    }
   }
 }

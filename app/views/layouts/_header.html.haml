@@ -2,9 +2,10 @@
   .header__title
     = link_to "Customa", root_path, class: "header__title--name"
   .header__search
-    .header__search--field
-      .search__icon
-        = link_to icon('fas', 'search'), search_documents_path
+    = link_to search_documents_path do
+      .header__search--icon
+        = icon('fas', 'search')
+      .header__search--text ファイル検索
   .header__nav
     - if user_signed_in?
       .header__nav--mypage
@@ -16,3 +17,4 @@
         = link_to "新規登録", new_user_registration_path, class: "new-btn"
       .header__nav--login
         = link_to "ログイン", new_user_session_path, class: "login-btn"
+        

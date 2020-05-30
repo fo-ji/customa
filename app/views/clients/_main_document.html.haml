@@ -8,7 +8,6 @@
       .left__title
         .left__title--name 見積書
       .left__box
-
         
         -# %ul.quotation__list{data: { model_name: document.class.name.underscore, update_url: document_sort_path(document)}}
         %ul.quotation__list{"data-model_name": "document.class.name.underscore", "data-update_url": "document_sort_path(document)"}
@@ -21,12 +20,12 @@
                 - else
                   = link_to document_add_path(quotation), class: "bookmark__icon", method: :delete do
                     = icon('fas', 'bookmark fa-2x')
-              = link_to document_path(quotation.id) do
+              = link_to document_path(quotation.id), class: "list__nav" do
                 .quotation__list--nav
                   %li.quotation__list--name
                     = quotation.name
                   %li.quotation__list--date 
-                    = "作成日：#{quotation.created_at.strftime('%Y/%m/%d')}"
+                    = "#{quotation.created_at.strftime('%Y/%m/%d')}"
 
     .main-document__container--center
       .center__title
@@ -42,12 +41,12 @@
                 - else
                   = link_to document_add_path(minute), class: "bookmark__icon", method: :delete do
                     = icon('fas', 'bookmark fa-2x')
-              = link_to document_path(minute.id) do
+              = link_to document_path(minute.id), class: "list__nav" do
                 .minutes__list--nav
                   %li.minutes__list--name
                     = minute.name
                   %li.minutes__list--date 
-                    = "作成日：#{minute.created_at.strftime('%Y/%m/%d')}"
+                    = "#{minute.created_at.strftime('%Y/%m/%d')}"
 
     .main-document__container--right
       .right__title
@@ -63,13 +62,13 @@
                 - else
                   = link_to document_add_path(other), class: "bookmark__icon", method: :delete do
                     = icon('fas', 'bookmark fa-2x')
-              = link_to document_path(other.id) do
+              = link_to document_path(other.id), class: "list__nav" do
                 .other__list--nav
                   %li.other__list--name
                     = other.name
                   %li.other__list--date 
-                    = "作成日：#{other.created_at.strftime('%Y/%m/%d')}"
+                    = "#{other.created_at.strftime('%Y/%m/%d')}"
 
   .main-document__footer
     .main-document__footer--upload
-      = link_to "file_upload", new_document_path, class: "upload"
+      = link_to "ファイルアップロード", new_document_path, class: "upload"

@@ -1,10 +1,6 @@
 @import "mixin/color";
 @import "mixin/main-document-name";
 
-* {
-  box-sizing: border-box;
-}
-
 // ページ全体
 .wrapper__show {
   display: flex;
@@ -41,8 +37,10 @@
       margin: 0 auto;
       
       .block__label {
+        margin: 0 auto;
         @include main-document-name();
         font-size: 18px;
+        width: 160px;
       }
       
       .block__text {

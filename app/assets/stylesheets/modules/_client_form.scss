@@ -1,15 +1,10 @@
 @import "mixin/color";
 @import "mixin/main-document-name";
-@import "mixin/nav-btn";
-
-* {
-  box-sizing: border-box;
-}
+@import "mixin/submit-btn";
 
 
 .client-form {
   height: calc(100vh - 50px - 30px);
-  background-color: $backgroundColorGray;
 
   &__header {
     height: 100px;
@@ -53,14 +48,16 @@
       }
       
       .actions {
+        text-align: center;
 
         .submit-btn {
-          @include nav-btn();
-          width: 150px;
+          display: block;
+          @include submit-btn();
           cursor: pointer;
           margin: 5px auto;
-          color: $fontColorBlack;
-          font-weight: bold;
+        }
+        .submit-btn:hover {
+          @include submit-btn-hover();
         }
       }
     }

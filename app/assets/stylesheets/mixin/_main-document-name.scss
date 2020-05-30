@@ -1,7 +1,6 @@
 @mixin main-document-name() {
+  width: 65px;
   font-size: 18px;
-  color: $fontColorBlack;
-  line-height: 60px;
-  text-decoration: underline;
-  padding-left: 10px;
+  padding-left: 5px;
+  border-bottom: solid 3px lightgray;
 }
