@@ -1,8 +1,8 @@
 # README
 
-![TOPページ](https://gyazo.com/e6ebcdb1c34c7f74dabdaa211e0c383f)
-![ファイル詳細画面](https://gyazo.com/312027394be7832f599f315332fa89f8)
-![アップロード履歴＆ブックマーク一覧](https://gyazo.com/da4250f7a6d7b19a033ffeb59d1dfbf4)
+![Image from Gyazo](https://gyazo.com/e6ebcdb1c34c7f74dabdaa211e0c383f)
+![Image from Gyazo](https://gyazo.com/312027394be7832f599f315332fa89f8)
+![Image from Gyazo](https://gyazo.com/da4250f7a6d7b19a033ffeb59d1dfbf4)
 
 # このアプリについて
 
