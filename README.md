@@ -1,6 +1,22 @@
 # README
 
-<!-- <!-- # このアプリについて -->
+![TOPページ](https://gyazo.com/e6ebcdb1c34c7f74dabdaa211e0c383f)
+![ファイル詳細画面](https://gyazo.com/312027394be7832f599f315332fa89f8)
+![アップロード履歴＆ブックマーク一覧](https://gyazo.com/da4250f7a6d7b19a033ffeb59d1dfbf4)
+
+# このアプリについて
+
+保存した書類が見つからない・・デスクトップが散らかりがちな忙しいサラリーマン向けの書類管理ツールです。
+
+# 機能
+
+* 書類アップロード
+* 書類へのコメント機能
+* 書類検索機能
+* 顧客、書類の種類（見積書、議事録、その他）ごとに管理可能
+* 最近のアップロード履歴
+* bookmark機能
+* Googleアカウントでのログイン/サインアップ機能
 
 # 制作
 
@@ -13,8 +29,33 @@
 * Rails:5.2.4.2
 
 * System dependencies
+ - gem 'mysql2' (0.5.3)
+ - gem 'sass-rails'
+ - gem 'jquery-rails'
+ - gem 'jbuilder'
+ - gem 'capistrano'
+ - gem 'rspec-rails'
+ - gem 'rails-controller-testing'
+ - gem 'factory_bot_rails'
+ - gem 'pry-rails'
+ - gem 'carrierwave'
+ - gem 'mini_magick'
+ - gem 'bullet'
+ - gem 'fog-aws'
+ - gem 'unicorn' (5.4.1)
+ - gem 'faker'
+ - gem 'font-awesome-sass'
+ - gem 'haml-rails'
+ - gem 'devise'
+ - gem 'omniauth'
+ - gem 'omniauth-google-oauth2'
+ - gem 'omniauth-rails_csrf_protection'
+ - gem 'ranked-model'
+ - gem 'dropzonejs-rails'
 
 ## サイトURL
+
+ パブリックIP: http://http://18.178.66.246/
 
 ## ER図
 
