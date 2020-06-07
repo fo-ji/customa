@@ -67,26 +67,29 @@
         margin-top: 10px;
         border-bottom: solid 3px lightgray;
 
-        .quotation__list {
+      }
 
-          &--all {
-            
-            .quotation__list--nav {
-              
-              .quotation__list--name {
-
-              }
-
-              .quotation__list--date {
-
-              }
-            }
-          }
+      .quotation__list {
+        
+        &--nav {
+          width: 50%;
+          color: $fontColorBlack;
+          font-weight: bold;
+          margin-left: 15px;
+          margin-top: 10px;
+          @include space-between();
         }
-
-        .quotation__notice {
-
+        
+        a {
+          text-decoration: none;
         }
+      }
+
+      .quotation__notice {
+        color: $fontColorBlack;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-top: 10px;
       }
     }
 
@@ -98,6 +101,29 @@
         margin-top: 10px;
         border-bottom: solid 3px lightgray;
       }
+
+      .minute__list {
+        
+        &--nav {
+          width: 50%;
+          color: $fontColorBlack;
+          font-weight: bold;
+          margin-left: 15px;
+          margin-top: 10px;
+          @include space-between();
+        }
+        
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .minute__notice {
+        color: $fontColorBlack;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-top: 10px;
+      }
     }
 
     .other__recent {
@@ -107,6 +133,29 @@
         width: 50px;
         margin-top: 10px;
         border-bottom: solid 3px lightgray;
+      }
+
+      .other__list {
+        
+        &--nav {
+          width: 50%;
+          color: $fontColorBlack;
+          font-weight: bold;
+          margin-left: 15px;
+          margin-top: 10px;
+          @include space-between();
+        }
+        
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .other__notice {
+        color: $fontColorBlack;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-top: 10px;
       }
     }
   }
@@ -127,6 +176,29 @@
         width: 50px;
         margin-top: 10px;
         border-bottom: solid 3px lightgray;
+
+      }
+      .quotation__list {
+      
+        &--nav {
+          width: 50%;
+          color: $fontColorBlack;
+          font-weight: bold;
+          margin-left: 15px;
+          margin-top: 10px;
+          @include space-between();
+        }
+        
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .quotation__notice {
+        color: $fontColorBlack;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-top: 10px;
       }
     }
 
@@ -136,6 +208,30 @@
         width: 50px;
         margin-top: 10px;
         border-bottom: solid 3px lightgray;
+
+      }
+
+      .minute__list {
+        
+        &--nav {
+          width: 50%;
+          color: $fontColorBlack;
+          font-weight: bold;
+          margin-left: 15px;
+          margin-top: 10px;
+          @include space-between();
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .minute__notice {
+        color: $fontColorBlack;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-top: 10px;
       }
     }
 
@@ -145,6 +241,29 @@
         width: 50px;
         margin-top: 10px;
         border-bottom: solid 3px lightgray;
+      }
+
+      .other__list {
+        
+        &--nav {
+          width: 50%;
+          color: $fontColorBlack;
+          font-weight: bold;
+          margin-left: 15px;
+          margin-top: 10px;
+          @include space-between();
+        }
+        
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .other__notice {
+        color: $fontColorBlack;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-top: 10px;
       }
     }
   }
