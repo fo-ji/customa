@@ -55,8 +55,7 @@
 
 ## サイトURL
 
- パブリックIP: http://http://18.178.66.246/
-
+ パブリックIP: http://18.178.66.246/
 ## ER図
 
 ![Customa_個人アプリ](https://user-images.githubusercontent.com/57491651/81266553-e1194f00-907f-11ea-81dd-2e5434b9ca2e.png)
