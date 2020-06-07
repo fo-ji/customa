@@ -3,7 +3,7 @@
   .document__container--left
     .file__container
       .file__container--document
-        = image_tag(@document.document_url, alt: "画像が表示できませんでした。")
+        %iframe{he: "", src: @document.document_url, height: "800px", width: "100%"}
 
   .document__container--right
     .nav__container
